@@ -133,15 +133,32 @@ router.delete("/delete/:id", verifyTokenAndIsAdmin, async (req, res) => {
 });
 
 // get all products
+let sortedProducts = [];
+
 router.get("/", verifyTokenAndAuthorization, async (req, res) => {
   const name_query = req.query.name;
   try {
+    // if (name_query) {
+    //   const products = await pool.query(
+    //     `SELECT * FROM products WHERE product_name LIKE $1`,
+    //     `SELECT * FROM products WHERE $1 in `,
+    //     [name_query]
+    //   );
+    //   res.status(201).json(products.rows);
+    // } else {
+    //   products = await pool.query(`SELECT * FROM products`);
+    //   res
+    //     .status(201)
+    //     .json(products.rows.sort((a, b) => b.updated_at - a.updated_at));
+    // }
     if (name_query) {
-      const products = await pool.query(
-        `SELECT * FROM products WHERE product_name = $1`,
-        [name_query]
-      );
-      res.status(201).json(products.rows);
+      const products = await pool.query(`SELECT * FROM products`);
+      products.rows.find((product) => {
+        product.product_name.trim().toLowerCase().includes(name_query) &&
+          (sortedProducts = [...sortedProducts, product]);
+      });
+      res.status(201).json(sortedProducts);
+      sortedProducts = [];
     } else {
       products = await pool.query(`SELECT * FROM products`);
       res

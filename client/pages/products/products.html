@@ -46,8 +46,8 @@
           <div class="mainContentTop">
             <div class="mainContentTitle">Products</div>
             <div class="searchInputContainer" >
-              <input type="text" class="searchInput" >
-              <span class="searchIcon" onclick="getFilteredProducts(event)">
+              <input type="text" class="searchInput" oninput="handleChange(event)" >
+              <span class="searchIcon" onclick="handleChange(event)">
                 <i class="fas fa-search 2X"></i>
               </span>
             </div>

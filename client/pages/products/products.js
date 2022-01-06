@@ -113,8 +113,65 @@ const getProducts = async () => {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
     });
-    unsortedProducts = await response.json();
+    const unsortedProducts = await response.json();
     products = unsortedProducts.sort((a, b) => b.updated_at - a.updated_at);
+
+    mainRow.innerHTML =
+      `<tr class="mainContentHeader">
+              <th class="idColumn">Id</th>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>` +
+      (
+        await products.map((product) => {
+          const {
+            product_id,
+            product_name,
+            product_price,
+            product_img,
+            total_no_available,
+          } = product;
+          return `<tr>
+              <td>${product_id}</td>
+              <td>
+                <div class="tableProduct">
+                  <img src=${product_img} alt="" class="productListImg"><span>${product_name}</span>
+                </div>
+              </td>
+              <td>${total_no_available}</td>
+              <td>$ ${product_price}</td>
+              <td class="tableBtn">
+                <div class="addAction" onclick="handleItemsSold(${product_id}, ${userId})" >Add</div>
+                <div class="removeAction" onclick="handleDelete(${product_id})">Del</div>
+              </td>
+            </tr>`;
+        })
+      ).join("");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const handleChange = async (e) => {
+  inputText = e.target.value;
+  console.log(inputText);
+  try {
+    const response = await fetch(
+      `http://localhost:5000/api/products?name=${inputText}`,
+      {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    );
+    // unsortedProducts = await response.json();
+    products = await response.json();
+    // products = unsortedProducts.sort((a, b) => b.updated_at - a.updated_at);
 
     console.log(products);
 
@@ -156,10 +213,12 @@ const getProducts = async () => {
   }
 };
 const getFilteredProducts = async (e) => {
-  const name_query = e.target.value;
+  e.preventDefault();
+  const name_query = ni;
+  console.log(e.target.value);
   try {
     const response = await fetch(
-      `http://localhost:5000/api/products?name='${name_query}'`,
+      `http://localhost:5000/api/products?name=${name_query}`,
       {
         method: "get",
         headers: {
@@ -169,8 +228,9 @@ const getFilteredProducts = async (e) => {
         },
       }
     );
-    unsortedProducts = await response.json();
-    products = unsortedProducts.sort((a, b) => b.updated_at - a.updated_at);
+    // unsortedProducts = await response.json();
+    products = await response.json();
+    // products = unsortedProducts.sort((a, b) => b.updated_at - a.updated_at);
 
     console.log(products);
 
