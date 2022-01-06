@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../dist/css/all.css" />
+    <link rel="stylesheet" href="./attendants.css" />
+    <script src="../../all.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="main">
+
+      <section class="glass">
+        <div class="dashboard">
+          <div class="user">
+            <img
+              src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              alt=""
+              class="userImg"
+            />
+            <h3 class="username">Alausa Tayo</h3>
+            <p class="userTitle">Admin</p>
+          </div>
+          <div class="links">
+            <div class="link" onclick="backHome()">
+              <i class="fas fa-home sidebarIcon"></i>
+              Home
+            </div>
+            <div class="link active" onclick="handleNavToAttendants()">
+              <i class="fas fa-user-tie sidebarIcon"></i>
+              Attendants
+            </div>
+            <div class="link" onclick="handleNavToSaleRecords()">
+              <i class="fas fa-chart-bar sidebarIcon"></i>
+              Sale records
+            </div>
+            <div class="link productsBtn" onclick="handleNavToProducts()">
+              <i class="fas fa-store sidebarIcon"></i>
+              Products
+            </div>
+          </div>
+          <div class="logOut">
+            <h3>Logout</h3>
+          </div>
+        </div>
+        <div class="mainContent">
+          <div class="mainContentTop">
+            <div class="mainContentTitle">Attendants</div>
+            <div class="searchInputContainer">
+              <input type="text" class="searchInput">
+              <span class="searchIcon">
+                <i class="fas fa-search 2X"></i>
+              </span>
+            </div>
+            <div class="createNew" onclick="handleNavToRegisterPage()">
+              Create new attendant
+            </div>
+
+          </div>
+          <table class="mainRow">
+          </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <script src="./attendants.js"></script>
+  </body>
+</html>

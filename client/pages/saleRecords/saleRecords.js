@@ -1,0 +1,159 @@
+// onclick = "handleNavToAttendants()";
+// get all attendants
+const mainRow = document.querySelector(".mainRow");
+let userStats;
+let xValues = [];
+let yValues = [];
+
+// const myChart = new Chart("myChart", {
+//   type: "line",
+//   data: {},
+//   options: {},
+// });
+
+// var yValues = Object.keys(userStats);
+// var xValues = Object.values(userStats);
+// new Chart("myChart", {
+//   type: "line",
+//   data: {
+//     labels: xValues,
+//     datasets: [
+//       {
+//         // fill: false,
+//         // lineTension: 0,
+//         backgroundColor: "rgba(0,225,0,1.0)",
+//         borderColor: "rgba(0,0,0,0.1)",
+//         data: yValues,
+//       },
+//     ],
+//   },
+//   options: {
+//     legend: { display: false },
+//     scales: {
+//       yAxes: [{ ticks: { min: 6, max: 16 } }],
+//     },
+//   },
+// });
+
+const handleNavToProducts = () => {
+  window.location.assign(
+    "http://127.0.0.1:5500/client/pages/products/products.html"
+  );
+};
+
+const handleNavToSaleRecords = () => {
+  window.location.assign(
+    "http://127.0.0.1:5500/client/pages/saleRecords/saleRecords.html"
+  );
+};
+
+const handleNavToRegisterPage = () => {
+  const user = JSON.parse(localStorage.getItem("user")).isadmin;
+  if (user) {
+    window.location.assign(
+      "http://127.0.0.1:5500/client/pages/Register/register.html"
+    );
+  } else {
+    console.log("Access denied");
+  }
+};
+
+const handleViewStats = async (id) => {
+  try {
+    const response = await fetch(
+      `http://localhost:5000/api/users/stats/${id}`,
+      {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    ).then(async (response) => {
+      userStats = await response.json();
+      console.log(userStats);
+      userStats.map((userStat) => {
+        console.log(userStat);
+        yValues.push(userStat.total);
+        xValues.push(userStat.to_char);
+      });
+
+      if (response.ok) {
+        const myChart = new Chart("myChart", {
+          type: "line",
+          data: {},
+          options: {},
+        });
+
+        new Chart("myChart", {
+          type: "line",
+          data: {
+            labels: xValues,
+            datasets: [
+              {
+                // fill: false,
+                // lineTension: 0,
+                backgroundColor: "rgba(0,225,0,1.0)",
+                borderColor: "rgba(0,0,0,0.1)",
+                data: yValues,
+              },
+            ],
+          },
+          options: {
+            legend: { display: false },
+            scales: {
+              yAxes: [{ ticks: { min: 0, max: 16 } }],
+            },
+          },
+        });
+      }
+      xValues = [];
+      yValues = [];
+    });
+
+    // .then(location.reload());
+    // return products.filter((product) => product.product_id !== id);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const handleNavToAttendants = async () => {
+  console.log("hello");
+  try {
+    const response = await fetch("http://localhost:5000/api/users/", {
+      method: "get",
+      headers: {
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    });
+    unsortedAttendants = await response.json();
+    attendants = unsortedAttendants.sort((a, b) => b.updated_at - a.updated_at);
+
+    mainRow.innerHTML =
+      `<tr class="mainContentHeader">
+              <th class="idColumn">Id</th>
+              <th>email</th>
+            </tr>` +
+      (
+        await attendants.map((attendant) => {
+          const { personnel_id, email, profile_picture } = attendant;
+          return `<tr>
+              <td>${personnel_id}</td>
+              <td>
+                <div class="tableProduct">
+                  <img src= ${profile_picture} alt="" class="productListImg"><span>${email}</span>
+                  <button class="notAdminBtn" onclick="handleViewStats(${personnel_id})"> View stats
+                      </button>
+                </div>
+              </td>
+            </tr>`;
+        })
+      ).join("");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+window.addEventListener("load", handleNavToAttendants);

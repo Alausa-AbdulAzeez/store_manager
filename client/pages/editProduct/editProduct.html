@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../dist/css/all.css" />
+    <link rel="stylesheet" href="./editProduct.css" />
+    <script src="../../all.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="main">
+      <section class="glass">
+        <div class="mainContent">
+          <div class="mainContentTop">
+            <div class="mainContentTitle">Select product to edit</div>
+            <!-- <div class="createNew">Create New Product</div> -->
+          </div>
+          <table class="mainRow"></table>
+        </div>
+        <div class="newProduct editContainer">
+          <div class="newProductHeader"></div>
+          <form class="addProductForm">
+            <div class="addProductItem">
+              <label for="">Title</label>
+              <input
+                name="product_name"
+                type="text"
+                placeholder="e.g Swim wear"
+                onchange="handleChange(event)"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Price</label>
+              <input
+                type="number"
+                placeholder="e.g $30"
+                name="product_price"
+                onchange="handleChange(event)"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Description</label>
+              <input
+                name="product_desc"
+                type="text"
+                placeholder="e.g Lorem ipsum, dolor sit amet"
+                onchange="handleChange(event)"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Image</label>
+              <input
+                name="product_img"
+                type="text"
+                placeholder="e.g abc.png"
+                onchange="handleChange(event)"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Categories</label>
+              <input
+                type="text"
+                placeholder="men, yellow"
+                onchange="handleCat(event)"
+                name="product_categories"
+              />
+            </div>
+
+            <div class="addProductItem">
+              <label for="">Quantity</label>
+              <input
+                type="number"
+                placeholder="e.g 50"
+                onchange="handleChange(event)"
+                name="total_no_available"
+              />
+            </div>
+          </form>
+          <button class="createBtn" onclick="handleSubmit(event)">
+            Save changes
+          </button>
+        </div>
+      </section>
+    </main>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <script src="./editProduct.js"></script>
+  </body>
+</html>

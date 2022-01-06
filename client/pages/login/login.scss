@@ -1,0 +1,102 @@
+/* @import "../../app.scss"; */
+@mixin tablet {
+  @media (max-width: 1359px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 719px) {
+    @content;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.registerContainer {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .formContainer {
+    height: 50vh;
+    width: 50vw;
+    background: transparent;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    /* @include mobile {
+      width: 90vw;
+      height: 90vh;
+      justify-content: center;
+      padding: 5px;
+    } */
+
+    .title {
+      font-weight: 100;
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: white;
+
+      /* @include mobile {
+        font-size: 30px;
+        text-align: center;
+      } */
+    }
+    .inputs {
+      display: flex;
+
+      input {
+        width: 45%;
+        padding: 10px;
+        margin: 25px 5px;
+        outline: none;
+      }
+    }
+    .formBtn {
+      align-self: center;
+      padding: 10px;
+      border: 1px solid gainsboro;
+      outline: none;
+
+      color: rgb(2, 65, 65);
+      background: rgb(204, 200, 200);
+      letter-spacing: 3px;
+      cursor: pointer;
+
+      @include mobile {
+        margin-bottom: 30px;
+      }
+
+      &:hover {
+        background: teal;
+        color: white;
+      }
+    }
+    .ps {
+      color: white;
+      margin-bottom: 10px;
+      border-left: 0.1px solid silver;
+      cursor: pointer;
+      width: max-content;
+      padding: 10px;
+
+      &:hover {
+        color: rgb(156, 214, 214);
+      }
+    }
+    .errorIndicator {
+      color: red;
+      margin-bottom: 10px;
+      border-left: 0.1px solid red;
+      // cursor: pointer;
+      font-size: larger;
+      width: max-content;
+      padding: 10px;
+    }
+  }
+}

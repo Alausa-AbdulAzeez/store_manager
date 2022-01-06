@@ -1,0 +1,115 @@
+/* @import "../../app.scss"; */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.registerContainer {
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0.5)));
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.registerContainer .formContainer {
+  height: 50vh;
+  width: 50vw;
+  background: transparent;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* @include mobile {
+      width: 90vw;
+      height: 90vh;
+      justify-content: center;
+      padding: 5px;
+    } */
+}
+
+.registerContainer .formContainer .title {
+  font-weight: 100;
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: white;
+  /* @include mobile {
+        font-size: 30px;
+        text-align: center;
+      } */
+}
+
+.registerContainer .formContainer .inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.registerContainer .formContainer .inputs input {
+  width: 45%;
+  padding: 10px;
+  margin: 25px 5px;
+  outline: none;
+}
+
+.registerContainer .formContainer .formBtn {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 10px;
+  border: 1px solid gainsboro;
+  outline: none;
+  color: #024141;
+  background: #ccc8c8;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+@media (max-width: 719px) {
+  .registerContainer .formContainer .formBtn {
+    margin-bottom: 30px;
+  }
+}
+
+.registerContainer .formContainer .formBtn:hover {
+  background: teal;
+  color: white;
+}
+
+.registerContainer .formContainer .ps {
+  color: white;
+  margin-bottom: 10px;
+  border-left: 0.1px solid silver;
+  cursor: pointer;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 10px;
+}
+
+.registerContainer .formContainer .ps:hover {
+  color: #9cd6d6;
+}
+
+.registerContainer .formContainer .errorIndicator {
+  color: red;
+  margin-bottom: 10px;
+  border-left: 0.1px solid red;
+  font-size: larger;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 10px;
+}
+/*# sourceMappingURL=login.css.map */

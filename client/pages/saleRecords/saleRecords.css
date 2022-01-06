@@ -1,0 +1,476 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  color: #426696;
+  font-style: italic;
+  min-height: 100vh;
+  background-color: #f1f0f0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.glass {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 80vh;
+  width: 100%;
+  padding: 0 2%;
+  border-radius: 30px;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(32px);
+          backdrop-filter: blur(32px);
+}
+
+.dashboard {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 20px;
+  color: white;
+  background-color: #0f0116;
+  background-color: rgba(15, 1, 22, 0.466);
+  border-radius: 30px;
+  -webkit-box-shadow: 1px 1px 10px gray;
+          box-shadow: 1px 1px 10px gray;
+}
+
+.dashboard .user {
+  height: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dashboard .user .userImg {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.dashboard .links {
+  height: 55%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.dashboard .links .link {
+  cursor: pointer;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.dashboard .links .link .sidebarIcon {
+  margin-right: 10px;
+  font-size: 20px !important;
+}
+
+.dashboard .links .link:hover {
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+  border-radius: 30px;
+}
+
+.dashboard .logOut {
+  width: 100%;
+  text-align: center;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dashboard .logOut h3 {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 60%;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+}
+
+.dashboard2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  padding: 20px;
+  -webkit-box-shadow: 1px 1px 10px gray;
+          box-shadow: 1px 1px 10px gray;
+  border-radius: 30px;
+}
+
+.dashboard2 .user {
+  height: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dashboard2 .user .userImg {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.dashboard2 .links {
+  height: 55%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.dashboard2 .links .link {
+  cursor: pointer;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.dashboard2 .links .link .sidebarIcon {
+  margin-right: 10px;
+  font-size: 20px !important;
+}
+
+.dashboard2 .links .link:hover {
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+  border-radius: 30px;
+}
+
+.dashboard2 .logOut {
+  width: 100%;
+  text-align: center;
+  height: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dashboard2 .logOut h3 {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  width: 60%;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+}
+
+.mainContent {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 30px;
+  height: auto;
+  overflow-y: scroll;
+  border-radius: 30px;
+  -webkit-box-shadow: 1px 1px 10px gray;
+          box-shadow: 1px 1px 10px gray;
+}
+
+.mainContent .mainContentTitle {
+  height: 10%;
+  font-size: 50px;
+  text-align: left;
+  font-weight: bolder;
+  margin-left: 15px;
+}
+
+.active {
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+  border-radius: 30px;
+}
+
+.sidebarIcon {
+  margin-right: 10px;
+  font-size: 40px !important;
+}
+
+table {
+  width: 100%;
+}
+
+.idColumn {
+  width: 20px;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+.productListImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 5px;
+}
+
+.tableProduct {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tableProduct span {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.tableBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.addAction {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  padding: 5px 10px;
+  background-color: #3bb077;
+}
+
+.removeAction {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  padding: 5px 10px;
+  background-color: #b03b3b;
+}
+
+.mainContentTop {
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  background: -webkit-gradient(linear, left top, left bottom, from(white));
+  background: linear-gradient(to bottom rgba(255, 255, 255, 0.3), white);
+  padding: 10px 0px;
+}
+
+.createNew {
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: #3bb077;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100px;
+}
+
+.editProduct {
+  color: white;
+  text-align: center;
+  top: 10px;
+  border: none;
+  background-color: #afad3c;
+  right: 150px;
+  position: absolute;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 100px;
+}
+
+.searchInputContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  right: 3%;
+  border: 1px solid #d6eeee;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+}
+
+.searchIcon {
+  background: #d6eeee;
+  padding: 10px;
+}
+
+.mainContentHeader {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 77px;
+  background: -webkit-gradient(linear, left top, left bottom, from(white));
+  background: linear-gradient(to bottom rgba(255, 255, 255, 0.3), white);
+  z-index: 666;
+}
+
+tr:nth-child(even) {
+  background-color: #d6eeee;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d5d5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #afaeae;
+}
+
+.BtnWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.isAdminBtn {
+  padding: 10px 20px;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background: #b03b54;
+}
+
+.isAdminBtn:disabled {
+  cursor: not-allowed;
+}
+
+.notAdminBtn {
+  padding: 10px 20px;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background: #3bb077;
+}
+/*# sourceMappingURL=saleRecords.css.map */

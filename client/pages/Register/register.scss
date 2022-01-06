@@ -1,0 +1,102 @@
+@mixin tablet {
+  @media (max-width: 1359px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 719px) {
+    @content;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.registerContainer {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .formContainer {
+    height: 50vh;
+    width: 50vw;
+    background: transparent;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    @include mobile {
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      padding: 0px;
+    }
+    @include tablet {
+      padding: 0px;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .title {
+      font-weight: 100;
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: white;
+
+      @include mobile {
+        text-align: center;
+        font-size: 20px;
+      }
+      @include tablet {
+        text-align: center;
+      }
+    }
+    .inputs {
+      display: flex;
+      flex-wrap: wrap;
+      @include mobile {
+        align-items: center;
+        justify-content: center;
+      }
+      @include tablet {
+        justify-content: center;
+        margin: 20px 5px;
+      }
+
+      input {
+        width: 45%;
+        padding: 10px;
+        margin: 25px 5px;
+        outline: none;
+
+        @include mobile {
+          width: 80%;
+          margin: 20px 5px;
+        }
+        @include tablet {
+          margin: 20px 5px;
+        }
+      }
+    }
+    .formBtn {
+      align-self: center;
+      padding: 10px;
+      border: 1px solid gainsboro;
+      outline: none;
+
+      color: rgb(2, 65, 65);
+      background: rgb(204, 200, 200);
+      letter-spacing: 3px;
+      cursor: pointer;
+
+      &:hover {
+        background: teal;
+        color: white;
+      }
+    }
+  }
+}
