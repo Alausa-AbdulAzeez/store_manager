@@ -2,9 +2,23 @@ const productsBtn = document.querySelector(".productsBtn");
 const mainRow = document.querySelector(".mainRow");
 const addAction = document.querySelector(".addAction");
 const createNew = document.querySelector(".createNew");
+const userProfile = document.querySelector(".user");
 
 let products = [];
-const userId = JSON.parse(localStorage.getItem("user")).personnel_id;
+const user = JSON.parse(localStorage.getItem("user"));
+const userId = user.personnel_id;
+
+userProfile.innerHTML = `<img
+              src=${
+                user.profile_picture === "test" || null
+                  ? "https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
+                  : user.profile_picture
+              }
+              alt=""
+              class="userImg"
+            />
+            <h3 class="username">${user.email}</h3>
+            `;
 
 const handleNavToProducts = () => {
   window.location.assign(
@@ -15,6 +29,12 @@ const handleNavToProducts = () => {
 const handleEditProduct = () => {
   window.location.assign(
     "http://127.0.0.1:5500/client/pages/editProduct/editProduct.html"
+  );
+};
+
+const handleNavToSaleRecords = () => {
+  window.location.assign(
+    "http://127.0.0.1:5500/client/pages/saleRecords/saleRecords.html"
   );
 };
 
@@ -41,7 +61,6 @@ const handleItemsSold = async (id, personnelId) => {
         },
       }
     ).then(async (response) => {
-      console.log(response);
       if (response.ok) {
         const response2 = await fetch(
           `http://localhost:5000/api/users/items_sold/${personnelId}`,
@@ -55,7 +74,6 @@ const handleItemsSold = async (id, personnelId) => {
             },
           }
         ).then(async (response2) => {
-          console.log(response2);
           if (response2.ok) {
             const response3 = await fetch(
               `http://localhost:5000/api/products/updateamount/${id}`,
@@ -75,7 +93,6 @@ const handleItemsSold = async (id, personnelId) => {
                 );
               }
             });
-            // console.log(response3);
           }
         });
       }
@@ -99,7 +116,6 @@ const handleDelete = async (id) => {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
     }).then(location.reload());
-    // return products.filter((product) => product.product_id !== id);
   } catch (error) {
     console.log(error);
   }
@@ -156,7 +172,6 @@ const getProducts = async () => {
 
 const handleChange = async (e) => {
   inputText = e.target.value;
-  console.log(inputText);
   try {
     const response = await fetch(
       `http://localhost:5000/api/products?name=${inputText}`,
@@ -169,70 +184,7 @@ const handleChange = async (e) => {
         },
       }
     );
-    // unsortedProducts = await response.json();
     products = await response.json();
-    // products = unsortedProducts.sort((a, b) => b.updated_at - a.updated_at);
-
-    console.log(products);
-
-    mainRow.innerHTML =
-      `<tr class="mainContentHeader">
-              <th class="idColumn">Id</th>
-              <th>Product</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Action</th>
-            </tr>` +
-      (
-        await products.map((product) => {
-          const {
-            product_id,
-            product_name,
-            product_price,
-            product_img,
-            total_no_available,
-          } = product;
-          return `<tr>
-              <td>${product_id}</td>
-              <td>
-                <div class="tableProduct">
-                  <img src=${product_img} alt="" class="productListImg"><span>${product_name}</span>
-                </div>
-              </td>
-              <td>${total_no_available}</td>
-              <td>$ ${product_price}</td>
-              <td class="tableBtn">
-                <div class="addAction" onclick="handleItemsSold(${product_id}, ${userId})" >Add</div>
-                <div class="removeAction" onclick="handleDelete(${product_id})">Del</div>
-              </td>
-            </tr>`;
-        })
-      ).join("");
-  } catch (error) {
-    console.log(error);
-  }
-};
-const getFilteredProducts = async (e) => {
-  e.preventDefault();
-  const name_query = ni;
-  console.log(e.target.value);
-  try {
-    const response = await fetch(
-      `http://localhost:5000/api/products?name=${name_query}`,
-      {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-      }
-    );
-    // unsortedProducts = await response.json();
-    products = await response.json();
-    // products = unsortedProducts.sort((a, b) => b.updated_at - a.updated_at);
-
-    console.log(products);
 
     mainRow.innerHTML =
       `<tr class="mainContentHeader">

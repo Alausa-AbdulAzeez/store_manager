@@ -13,24 +13,26 @@
     <main class="main">
       <section class="glass">
         <div class="dashboard">
-          <div class="user">
-            
-          </div>
+          <div class="user"></div>
           <div class="links">
             <div class="link active">
               <i class="fas fa-home sidebarIcon"></i>
               Home
             </div>
-            <div class="link" onclick="handleNavToAttendants()">
-              <i class="fas fa-user-tie sidebarIcon"></i>
-              Attendants
-            </div>
             <div class="link" onclick="handleNavToProducts()">
               <i class="fas fa-store sidebarIcon"></i>
               Products
             </div>
+            <div class="link" onclick="handleNavToAttendants()">
+              <i class="fas fa-user-tie sidebarIcon"></i>
+              Attendants
+            </div>
+            <div class="link" onclick="handleNavToSaleRecords()">
+              <i class="fas fa-chart-bar sidebarIcon"></i>
+              Sale records
+            </div>
           </div>
-          <div class="logOut">
+          <div class="logOut" onclick="handleLogout()">
             <h3>Logout</h3>
           </div>
         </div>
@@ -43,10 +45,16 @@
                 Products
               </div>
             </div>
-            <div class="card">
-              <div class="attendants" onclick="handleNavToAttendants()">
+            <div class="card" onclick="handleNavToAttendants()">
+              <div class="attendants">
                 <i class="fas fa-user-tie sidebarIcon"></i>
                 Attendants
+              </div>
+            </div>
+            <div class="card">
+              <div class="link" onclick="handleNavToSaleRecords()">
+                <i class="fas fa-chart-bar sidebarIcon"></i>
+                Sale records
               </div>
             </div>
           </div>

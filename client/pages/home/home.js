@@ -1,6 +1,13 @@
 const userProfile = document.querySelector(".user");
 const user = JSON.parse(localStorage.getItem("user"));
 
+const checkUser = () => {
+  !user &&
+    window.location.assign(
+      "http://127.0.0.1:5500/client/pages/login/login.html"
+    );
+};
+
 userProfile.innerHTML = `<img
               src=${
                 user.profile_picture === "test" || null
@@ -18,10 +25,21 @@ const handleNavToProducts = () => {
     "http://127.0.0.1:5500/client/pages/products/products.html"
   );
 };
+
 const handleNavToAttendants = () => {
   window.location.assign(
     "http://127.0.0.1:5500/client/pages/attendants/attendants.html"
   );
 };
 
-productsBtn.addEventListener("click", handleNavToProducts);
+const handleNavToSaleRecords = () => {
+  window.location.assign(
+    "http://127.0.0.1:5500/client/pages/saleRecords/saleRecords.html"
+  );
+};
+
+const handleLogout = () => {
+  localStorage.removeItem("user");
+};
+
+window.addEventListener("load", checkUser);
