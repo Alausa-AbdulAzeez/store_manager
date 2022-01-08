@@ -7,6 +7,21 @@ const {
 
 let sortedProducts = [];
 
+// get single user
+
+router.get("/:id", verifyTokenAndAuthorization, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await pool.query(
+      `SELECT * FROM personnel WHERE personnel_id = $1`,
+      [id]
+    );
+    res.status(201).json(user.rows);
+  } catch (error) {
+    res.json(error);
+  }
+});
+
 // get all users
 router.get("/", verifyTokenAndAuthorization, async (req, res) => {
   const name_query = req.query.name;
@@ -37,10 +52,10 @@ router.put("/update/:id", verifyTokenAndIsAdmin, async (req, res) => {
     const { isAdmin } = req.body;
     const { id } = req.params;
     const updatedUser = await pool.query(
-      `UPDATE personnel SET isAdmin = $1  WHERE personnel_id = $2 RETURNING *`,
+      `UPDATE personnel SET isadmin = $1  WHERE personnel_id = $2 RETURNING *`,
       [isAdmin, id]
     );
-    res.status(201).json(updatedUser);
+    res.status(201).json(updatedUser.rows);
   } catch (error) {
     res.json(error);
   }

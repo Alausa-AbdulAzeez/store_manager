@@ -4,6 +4,7 @@
 const mainRow = document.querySelector(".mainRow");
 const user = JSON.parse(localStorage.getItem("user"));
 const userProfile = document.querySelector(".user");
+let attebdant = {};
 
 userProfile.innerHTML = `<img
               src=${
@@ -40,8 +41,43 @@ const handleNavToRegisterPage = () => {
   }
 };
 
-const handleMakeAdmin = (e) => {
-  console.log(e);
+const handleMakeAdmin = async (id) => {
+  try {
+    const response = await fetch(`http://localhost:5000/api/users/${id}`, {
+      method: "get",
+      headers: {
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    }).then(async (response) => {
+      attebdant = await response.json();
+      console.log(attebdant[0]);
+      const updatedAttendant = await {
+        ...attebdant[0],
+        isadmin: 1,
+      };
+
+      const body = { ...updatedAttendant };
+      console.log(body);
+      const response2 = await fetch(
+        `http://localhost:5000/api/users/update/${id}`,
+        {
+          method: "put",
+          headers: {
+            "Content-Type": "application/json",
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+          body: JSON.stringify(body),
+        }
+      );
+      console.log(await response2.json());
+    });
+    // .then(location.reload());
+  } catch (error) {
+    console.log(error);
+  }
+
+  // console.log(e);
 };
 
 const handleNavToAttendants = async (e) => {
@@ -81,7 +117,7 @@ const handleNavToAttendants = async (e) => {
                 </div>
               </td>
               <td>${isadmin ? "Admin" : "Not Admin"}</td>
-              <td>$ ${total_items_sold}</td>
+              <td> ${total_items_sold}</td>
               <td class="tableBtn">
                   ${
                     isadmin
@@ -90,7 +126,7 @@ const handleNavToAttendants = async (e) => {
                       </button> 
                       </div>`
                       : `<div class="BtnWrapper" >
-                      <button class="notAdminBtn" onclick="handleMakeAdmin(event)"> Make admin
+                      <button class="notAdminBtn" onclick="handleMakeAdmin(${personnel_id})"> Make admin
                       </button> 
                       </div>`
                   }
@@ -145,7 +181,7 @@ const handleChange = async (e) => {
                 </div>
               </td>
               <td>${isadmin ? "Admin" : "Not Admin"}</td>
-              <td>$ ${total_items_sold}</td>
+              <td> ${total_items_sold}</td>
               <td class="tableBtn">
                   ${
                     isadmin
@@ -154,7 +190,7 @@ const handleChange = async (e) => {
                       </button> 
                       </div>`
                       : `<div class="BtnWrapper" >
-                      <button class="notAdminBtn" onclick="handleMakeAdmin(event)"> Make admin
+                      <button class="notAdminBtn" onclick="handleMakeAdmin(${email})"> Make admin
                       </button> 
                       </div>`
                   }
