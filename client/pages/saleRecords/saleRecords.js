@@ -194,4 +194,9 @@ const handleLogout = () => {
   localStorage.removeItem("user");
 };
 
+// BACK HOME
+const backHome = () => {
+  window.location.assign("http://127.0.0.1:5500/client/pages/home/home.html");
+};
+
 window.addEventListener("load", handleNavToAttendants);
