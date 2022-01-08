@@ -1,39 +1,28 @@
 // onclick = "handleNavToAttendants()";
 // get all attendants
 const mainRow = document.querySelector(".mainRow");
+const dashboard2Text = document.querySelector(".dashboard2Text");
+
+const user = JSON.parse(localStorage.getItem("user"));
+const userProfile = document.querySelector(".user");
+
+userProfile.innerHTML = `<img
+              src=${
+                user.profile_picture === "test" || null
+                  ? "https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
+                  : user.profile_picture
+              }
+              alt=""
+              class="userImg"
+            />
+            <h3 class="username">${user.email}</h3>
+            `;
+
 let userStats;
 let xValues = [];
 let yValues = [];
 
-// const myChart = new Chart("myChart", {
-//   type: "line",
-//   data: {},
-//   options: {},
-// });
-
-// var yValues = Object.keys(userStats);
-// var xValues = Object.values(userStats);
-// new Chart("myChart", {
-//   type: "line",
-//   data: {
-//     labels: xValues,
-//     datasets: [
-//       {
-//         // fill: false,
-//         // lineTension: 0,
-//         backgroundColor: "rgba(0,225,0,1.0)",
-//         borderColor: "rgba(0,0,0,0.1)",
-//         data: yValues,
-//       },
-//     ],
-//   },
-//   options: {
-//     legend: { display: false },
-//     scales: {
-//       yAxes: [{ ticks: { min: 6, max: 16 } }],
-//     },
-//   },
-// });
+dashboard2Text.textContent = "Select attendant to view stats";
 
 const handleNavToProducts = () => {
   window.location.assign(
@@ -59,6 +48,7 @@ const handleNavToRegisterPage = () => {
 };
 
 const handleViewStats = async (id) => {
+  dashboard2Text.textContent = "";
   try {
     const response = await fetch(
       `http://localhost:5000/api/users/stats/${id}`,
@@ -92,16 +82,18 @@ const handleViewStats = async (id) => {
             labels: xValues,
             datasets: [
               {
-                // fill: false,
-                // lineTension: 0,
-                backgroundColor: "rgba(0,225,0,1.0)",
+                lineTension: 0,
+                label: "Number of sales per month",
+                backgroundColor: "#b03b54",
                 borderColor: "rgba(0,0,0,0.1)",
                 data: yValues,
               },
             ],
           },
           options: {
-            legend: { display: false },
+            legend: {
+              display: true,
+            },
             scales: {
               yAxes: [{ ticks: { min: 0, max: 16 } }],
             },
@@ -154,6 +146,52 @@ const handleNavToAttendants = async () => {
   } catch (error) {
     console.log(error);
   }
+};
+const handleChange = async (e) => {
+  inputText = e.target.value;
+
+  try {
+    const response = await fetch(
+      `http://localhost:5000/api/users?name=${inputText}`,
+      {
+        method: "get",
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    );
+    unsortedAttendants = await response.json();
+    attendants = unsortedAttendants.sort((a, b) => b.updated_at - a.updated_at);
+
+    mainRow.innerHTML =
+      `<tr class="mainContentHeader">
+              <th class="idColumn">Id</th>
+              <th>email</th>
+            </tr>` +
+      (
+        await attendants.map((attendant) => {
+          const { personnel_id, email, profile_picture } = attendant;
+          return `<tr>
+              <td>${personnel_id}</td>
+              <td>
+                <div class="tableProduct">
+                  <img src= ${profile_picture} alt="" class="productListImg"><span>${email}</span>
+                  <button class="notAdminBtn" onclick="handleViewStats(${personnel_id})"> View stats
+                      </button>
+                </div>
+              </td>
+            </tr>`;
+        })
+      ).join("");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// LOGOUT
+const handleLogout = () => {
+  localStorage.removeItem("user");
 };
 
 window.addEventListener("load", handleNavToAttendants);

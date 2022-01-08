@@ -143,6 +143,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -150,99 +154,10 @@
       -ms-flex: 2;
           flex: 2;
   padding: 20px;
+  color: #b03b54;
   -webkit-box-shadow: 1px 1px 10px gray;
           box-shadow: 1px 1px 10px gray;
   border-radius: 30px;
-}
-
-.dashboard2 .user {
-  height: 35%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.dashboard2 .user .userImg {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-}
-
-.dashboard2 .links {
-  height: 55%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.dashboard2 .links .link {
-  cursor: pointer;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  margin-bottom: 5px;
-}
-
-.dashboard2 .links .link .sidebarIcon {
-  margin-right: 10px;
-  font-size: 20px !important;
-}
-
-.dashboard2 .links .link:hover {
-  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.3)));
-  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
-  border-radius: 30px;
-}
-
-.dashboard2 .logOut {
-  width: 100%;
-  text-align: center;
-  height: 10%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.dashboard2 .logOut h3 {
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 20px;
-  width: 60%;
-  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.3)));
-  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
 }
 
 .mainContent {
@@ -471,6 +386,13 @@ tr:nth-child(even) {
   text-align: center;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
   background: #3bb077;
+}
+
+.dashboard2Text {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
 }
 /*# sourceMappingURL=saleRecords.css.map */

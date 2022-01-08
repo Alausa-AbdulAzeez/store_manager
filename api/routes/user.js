@@ -5,15 +5,28 @@ const {
   verifyTokenAndAuthorization,
 } = require("./verifyTokekn");
 
-// get user
+let sortedProducts = [];
+
+// get all users
 router.get("/", verifyTokenAndAuthorization, async (req, res) => {
+  const name_query = req.query.name;
   try {
-    const users = await pool.query(`SELECT * FROM personnel`);
-    res
-      .status(201)
-      .json(users.rows.sort((a, b) => b.updated_at - a.updated_at));
+    if (name_query) {
+      const users = await pool.query(`SELECT * FROM personnel`);
+      users.rows.find((user) => {
+        user.email.trim().toLowerCase().includes(name_query) &&
+          (sortedProducts = [...sortedProducts, user]);
+      });
+      res.status(201).json(sortedProducts);
+      sortedProducts = [];
+    } else {
+      const users = await pool.query(`SELECT * FROM personnel`);
+      res
+        .status(201)
+        .json(users.rows.sort((a, b) => b.updated_at - a.updated_at));
+    }
   } catch (error) {
-    console.log(error);
+    res.json(error);
   }
 });
 

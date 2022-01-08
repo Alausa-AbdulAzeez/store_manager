@@ -15,18 +15,16 @@
       <section class="glass">
         <div class="dashboard">
           <div class="user">
-            <img
-              src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              alt=""
-              class="userImg"
-            />
-            <h3 class="username">Alausa Tayo</h3>
-            <p class="userTitle">Admin</p>
+            
           </div>
           <div class="links">
-            <div class="link" onclick="backHome()">
+            <div class="link ">
               <i class="fas fa-home sidebarIcon"></i>
               Home
+            </div>
+            <div class="link " onclick="handleNavToProducts()">
+              <i class="fas fa-store sidebarIcon"></i>
+              Products
             </div>
             <div class="link active" onclick="handleNavToAttendants()">
               <i class="fas fa-user-tie sidebarIcon"></i>
@@ -36,12 +34,8 @@
               <i class="fas fa-chart-bar sidebarIcon"></i>
               Sale records
             </div>
-            <div class="link productsBtn" onclick="handleNavToProducts()">
-              <i class="fas fa-store sidebarIcon"></i>
-              Products
-            </div>
           </div>
-          <div class="logOut">
+          <div class="logOut" onclick="handleLogout()">
             <h3>Logout</h3>
           </div>
         </div>
@@ -49,7 +43,7 @@
           <div class="mainContentTop">
             <div class="mainContentTitle">Attendants</div>
             <div class="searchInputContainer">
-              <input type="text" class="searchInput">
+              <input type="text" class="searchInput" oninput="handleChange(event)">
               <span class="searchIcon">
                 <i class="fas fa-search 2X"></i>
               </span>
