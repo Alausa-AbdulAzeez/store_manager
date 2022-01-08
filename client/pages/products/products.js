@@ -159,8 +159,12 @@ const getProducts = async () => {
               <td>${total_no_available}</td>
               <td>$ ${product_price}</td>
               <td class="tableBtn">
-                <div class="addAction" onclick="handleItemsSold(${product_id}, ${userId})" >Add</div>
-                <div class="removeAction" onclick="handleDelete(${product_id})">Del</div>
+              ${
+                total_no_available === 1
+                  ? `<button class="addAction" disabled=true onclick="handleItemsSold(${product_id}, ${userId})" >Addd</button>`
+                  : `<button class="addAction" onclick="handleItemsSold(${product_id}, ${userId})" >Add</button>`
+              }
+                <button class="removeAction" onclick="handleDelete(${product_id})">Del</button>
               </td>
             </tr>`;
         })
