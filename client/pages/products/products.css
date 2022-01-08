@@ -225,7 +225,7 @@
   overflow-y: scroll;
 }
 
-.mainContent .mainContentTitle {
+.mainContentTitle {
   height: 10%;
   font-size: 50px;
   text-align: left;
@@ -331,10 +331,8 @@ td {
 
 .mainContentTop {
   width: 100%;
-  position: -webkit-sticky;
   position: sticky;
   top: 0px;
-  background: -webkit-gradient(linear, left top, left bottom, from(white));
   background: linear-gradient(to bottom rgba(255, 255, 255, 0.3), white);
   padding: 10px 0px;
 }
@@ -391,7 +389,7 @@ td {
   position: sticky;
   top: 77px;
   background: -webkit-gradient(linear, left top, left bottom, from(white));
-  background: linear-gradient(to bottom rgba(255, 255, 255, 0.3), white);
+  /* background: linear-gradient(to bottom rgba(255, 255, 255, 0.3), white); */
   z-index: 666;
 }
 
@@ -415,3 +413,171 @@ tr:nth-child(even) {
   background: #afaeae;
 }
 /*# sourceMappingURL=products.css.map */
+
+@media screen and (max-width: 480px) {
+  .glass {
+    font-size: 14px;
+    display: flex;
+    background: linen;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.467),
+      rgba(255, 255, 255, 0.3)
+    );
+    border-radius: 30px;
+    z-index: 2;
+    backdrop-filter: blur(32px);
+  }
+
+  .dashboard,
+  .editProduct {
+    display: none;
+  }
+
+  .mainContentTitle {
+    display: none;
+    /* font-size: 30px; */
+  }
+  .searchInputContainer {
+    left: 20px;
+    width: 40%;
+  }
+  .searchInputContainer {
+    width: 40%;
+  }
+  .searchInput {
+    width: 100%;
+  }
+  .createNew {
+    right: 20px;
+    width: 30%;
+    top: 80%;
+  }
+  .mainContentHeader {
+    position: sticky;
+    top: 40px;
+    background: linear-gradient(to bottom rgba(255, 255, 255, 0.3), white);
+  }
+  .addAction,
+  .removeAction {
+    border: none;
+    padding: 5px;
+    width: 90%;
+  }
+  .mainContent {
+    margin: 10px;
+  }
+  .mainRow {
+    margin-top: 60px;
+    top: 50px;
+  }
+}
+@media screen and (max-width: 786px) {
+  .glass {
+    font-size: 14px;
+    display: flex;
+    background: linen;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.467),
+      rgba(255, 255, 255, 0.3)
+    );
+    border-radius: 30px;
+    z-index: 2;
+    backdrop-filter: blur(32px);
+  }
+
+  .dashboard {
+    display: none;
+  }
+  .mainContent {
+    margin: 10px;
+  }
+  .dashboard,
+  .editProduct {
+    display: none;
+  }
+
+  .mainContentTitle {
+    display: none;
+    /* font-size: 30px; */
+  }
+  .searchInputContainer {
+    left: 20px;
+    width: 40%;
+  }
+  .searchInputContainer {
+    width: 40%;
+  }
+  .searchInput {
+    width: 100%;
+  }
+  .createNew {
+    right: 20px;
+    width: 30%;
+    top: 80%;
+  }
+  .addAction,
+  .removeAction {
+    border: none;
+    padding: 5px;
+    width: 90%;
+  }
+  .mainContentHeader {
+    position: sticky;
+    top: 40px;
+    background: linear-gradient(to bottom rgba(255, 255, 255, 0.3), white);
+  }
+  .mainRow {
+    margin-top: 60px;
+    top: 50px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .glass {
+    display: flex;
+    background: linen;
+    min-height: 90vh;
+    width: 90%;
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.467),
+      rgba(255, 255, 255, 0.3)
+    );
+    border-radius: 30px;
+    z-index: 2;
+    backdrop-filter: blur(32px);
+  }
+  .dashboard {
+    border-radius: 30px;
+  }
+  .mainContentTitle {
+    display: none;
+    visibility: hidden;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 80px;
+  }
+  .mainRow {
+    margin-top: 60px;
+    top: 50px;
+  }
+  .editProduct {
+    display: none;
+  }
+  .mainContentHeader {
+    position: sticky;
+    top: 60px;
+    background: linear-gradient(to bottom rgba(255, 255, 255, 0.3), white);
+  }
+  .addAction,
+  .removeAction {
+    border: none;
+    padding: 5px;
+    width: 90%;
+  }
+}
