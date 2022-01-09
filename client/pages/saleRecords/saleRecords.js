@@ -62,9 +62,7 @@ const handleViewStats = async (id) => {
       }
     ).then(async (response) => {
       userStats = await response.json();
-      console.log(userStats);
       userStats.map((userStat) => {
-        console.log(userStat);
         yValues.push(userStat.total);
         xValues.push(userStat.to_char);
       });
@@ -112,7 +110,6 @@ const handleViewStats = async (id) => {
 };
 
 const handleNavToAttendants = async () => {
-  console.log("hello");
   try {
     const response = await fetch("http://localhost:5000/api/users/", {
       method: "get",
