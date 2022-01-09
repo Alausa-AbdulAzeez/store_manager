@@ -19,10 +19,10 @@ app.use("/api/auth/", authRoute);
 app.use("/api/products/", productRoute);
 app.use("/api/users/", userRoute);
 
-app.use(express.static(path.join(__dirname, "/client")));
+app.use(express.static(path.join(__dirname, "/client/pages")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/pages/home/", "home.html"));
+  res.sendFile(path.join(__dirname, "/client/pages/", "home.html"));
 });
 
 // const aaa = path.resolve(__dirname, "client/pages/home/home.js");
