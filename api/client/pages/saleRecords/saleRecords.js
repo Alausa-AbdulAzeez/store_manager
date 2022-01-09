@@ -51,7 +51,7 @@ const handleViewStats = async (id) => {
   dashboard2Text.textContent = "";
   try {
     const response = await fetch(
-      `http://localhost:5000/api/users/stats/${id}`,
+      `https://zstore-manager.herokuapp.com/api/users/stats/${id}`,
       {
         method: "get",
         headers: {
@@ -111,12 +111,16 @@ const handleViewStats = async (id) => {
 
 const handleNavToAttendants = async () => {
   try {
-    const response = await fetch("http://localhost:5000/api/users/", {
-      method: "get",
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    });
+    const response = await fetch(
+      "https://zstore-manager.herokuapp.com/api/users/",
+      {
+        method: "get",
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    );
     unsortedAttendants = await response.json();
     attendants = unsortedAttendants.sort((a, b) => b.updated_at - a.updated_at);
 
@@ -149,7 +153,7 @@ const handleChange = async (e) => {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/users?name=${inputText}`,
+      `https://zstore-manager.herokuapp.com/api/users?name=${inputText}`,
       {
         method: "get",
         headers: {

@@ -51,7 +51,7 @@ const handleNavToAttendants = () => {
 const handleItemsSold = async (id, personnelId) => {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/users/items_sold/${personnelId}`,
+      `https://zstore-manager.herokuapp.com/api/users/items_sold/${personnelId}`,
       {
         method: "post",
         headers: {
@@ -63,7 +63,7 @@ const handleItemsSold = async (id, personnelId) => {
     ).then(async (response) => {
       if (response.ok) {
         const response2 = await fetch(
-          `http://localhost:5000/api/users/items_sold/${personnelId}`,
+          `https://zstore-manager.herokuapp.com/api/users/items_sold/${personnelId}`,
           {
             method: "put",
             headers: {
@@ -76,7 +76,7 @@ const handleItemsSold = async (id, personnelId) => {
         ).then(async (response2) => {
           if (response2.ok) {
             const response3 = await fetch(
-              `http://localhost:5000/api/products/updateamount/${id}`,
+              `https://zstore-manager.herokuapp.com/api/products/updateamount/${id}`,
               {
                 method: "put",
                 headers: {
@@ -110,12 +110,16 @@ const handleCreateNewProduct = () => {
 
 const handleDelete = async (id) => {
   try {
-    await fetch(`http://localhost:5000/api/products/delete/${id}`, {
-      method: "delete",
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    }).then(location.reload());
+    await fetch(
+      `https://zstore-manager.herokuapp.com/api/products/delete/${id}`,
+      {
+        method: "delete",
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    ).then(location.reload());
   } catch (error) {
     console.log(error);
   }
@@ -123,12 +127,16 @@ const handleDelete = async (id) => {
 
 const getProducts = async () => {
   try {
-    const response = await fetch("http://localhost:5000/api/products/", {
-      method: "get",
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    });
+    const response = await fetch(
+      "https://zstore-manager.herokuapp.com/api/products/",
+      {
+        method: "get",
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    );
     const unsortedProducts = await response.json();
     products = unsortedProducts.sort((a, b) => b.updated_at - a.updated_at);
 
@@ -178,7 +186,7 @@ const handleChange = async (e) => {
   inputText = e.target.value;
   try {
     const response = await fetch(
-      `http://localhost:5000/api/products?name=${inputText}`,
+      `https://zstore-manager.herokuapp.com/api/products?name=${inputText}`,
       {
         method: "get",
         headers: {

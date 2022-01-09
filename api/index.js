@@ -18,7 +18,13 @@ app.use("/api/auth/", authRoute);
 app.use("/api/products/", productRoute);
 app.use("/api/users/", userRoute);
 
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+});
+
 const PORT = 5000;
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });

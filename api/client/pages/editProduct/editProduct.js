@@ -24,12 +24,16 @@ const handleCat = (e) => {
 
 const handleEditProduct = async (id) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/products/${id}`, {
-      method: "get",
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    }).then(async (response) => {
+    const response = await fetch(
+      `https://zstore-manager.herokuapp.com/api/products/${id}`,
+      {
+        method: "get",
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    ).then(async (response) => {
       product = await response.json();
       product_id = product[0].product_id;
       newProductHeader.textContent = `Edit ` + product[0].product_name;
@@ -45,7 +49,7 @@ const handleSubmit = async (e) => {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/products/update/${product_id}`,
+      `https://zstore-manager.herokuapp.com/api/products/update/${product_id}`,
       {
         method: "put",
         headers: {
@@ -69,12 +73,16 @@ const handleSubmit = async (e) => {
 
 const getProducts = async () => {
   try {
-    const response = await fetch("http://localhost:5000/api/products/", {
-      method: "get",
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    });
+    const response = await fetch(
+      "https://zstore-manager.herokuapp.com/api/products/",
+      {
+        method: "get",
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    );
     unsortedProducts = await response.json();
     products = unsortedProducts.sort((a, b) => b.updated_at - a.updated_at);
 

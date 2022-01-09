@@ -43,12 +43,16 @@ const handleNavToRegisterPage = () => {
 
 const handleMakeAdmin = async (id) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/users/${id}`, {
-      method: "get",
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    }).then(async (response) => {
+    const response = await fetch(
+      `https://zstore-manager.herokuapp.com/api/users/${id}`,
+      {
+        method: "get",
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    ).then(async (response) => {
       attebdant = await response.json();
       console.log(attebdant[0]);
       const updatedAttendant = await {
@@ -59,7 +63,7 @@ const handleMakeAdmin = async (id) => {
       const body = { ...updatedAttendant };
       console.log(body);
       const response2 = await fetch(
-        `http://localhost:5000/api/users/update/${id}`,
+        `https://zstore-manager.herokuapp.com/api/users/update/${id}`,
         {
           method: "put",
           headers: {
@@ -82,13 +86,17 @@ const handleMakeAdmin = async (id) => {
 
 const handleNavToAttendants = async (e) => {
   try {
-    const response = await fetch("http://localhost:5000/api/users/", {
-      method: "get",
-      headers: {
-        "Content-Type": "application/json",
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    });
+    const response = await fetch(
+      "https://zstore-manager.herokuapp.com/api/users/",
+      {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }
+    );
     unsortedAttendants = await response.json();
     attendants = unsortedAttendants.sort((a, b) => b.updated_at - a.updated_at);
 
@@ -143,7 +151,7 @@ const handleChange = async (e) => {
 
   try {
     const response = await fetch(
-      `http://localhost:5000/api/users?name=${inputText}`,
+      `https://zstore-manager.herokuapp.com/api/users?name=${inputText}`,
       {
         method: "get",
         headers: {

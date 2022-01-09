@@ -19,11 +19,14 @@ const handleLogin = async (e) => {
   const body = { email, password };
 
   if (e.target.name === "loginBtn") {
-    const response = await fetch("http://localhost:5000/api/auth/login", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    }).then(async (response) => {
+    const response = await fetch(
+      "https://zstore-manager.herokuapp.com/api/auth/login",
+      {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      }
+    ).then(async (response) => {
       const user = await response.json(body);
       localStorage.setItem("user", JSON.stringify(user));
       if (response.ok) {
