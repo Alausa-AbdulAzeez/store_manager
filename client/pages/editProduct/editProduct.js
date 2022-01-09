@@ -15,13 +15,11 @@ newProductHeader.textContent = product ? "" : "Edit Product";
 const handleChange = (e) => {
   inputs = { ...inputs, [e.target.name]: e.target.value };
   updatedProduct = { ...product[0], ...inputs };
-  console.log(updatedProduct);
 };
 
 const handleCat = (e) => {
   categories = e.target.value.split(",");
   updatedProduct = { ...product[0], product_categories: categories };
-  console.log(updatedProduct);
 };
 
 const handleEditProduct = async (id) => {
@@ -79,8 +77,6 @@ const getProducts = async () => {
     });
     unsortedProducts = await response.json();
     products = unsortedProducts.sort((a, b) => b.updated_at - a.updated_at);
-
-    console.log(products);
 
     mainRow.innerHTML =
       `<tr class="mainContentHeader">
