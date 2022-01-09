@@ -6,20 +6,26 @@
 
 .registerContainer {
   height: 100vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0.5)));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 0.9)),
+    to(rgba(0, 0, 0, 0.5))
+  );
   background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-.registerContainer .formContainer {
+.formContainer {
   height: 50vh;
   width: 50vw;
   background: transparent;
@@ -29,8 +35,8 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   /* @include mobile {
       width: 90vw;
       height: 90vh;
@@ -56,17 +62,17 @@
   display: flex;
 }
 
-.registerContainer .formContainer .inputs input {
+input {
   width: 45%;
-  padding: 10px;
+  padding: 10px 15px;
   margin: 25px 5px;
   outline: none;
 }
 
 .registerContainer .formContainer .formBtn {
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   padding: 10px;
   border: 1px solid gainsboro;
   outline: none;
@@ -111,5 +117,26 @@
   width: -moz-max-content;
   width: max-content;
   padding: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .formContainer {
+    padding: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .emailInput,
+  .passwordInput {
+    width: 100%;
+    justify-self: center;
+    padding: 10px 0;
+    margin: 25px 0px;
+  }
 }
 /*# sourceMappingURL=login.css.map */
