@@ -6,6 +6,7 @@ const pool = require("./db/db");
 const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const userRoute = require("./routes/user");
+const path = require("path");
 
 dotenv.config();
 
