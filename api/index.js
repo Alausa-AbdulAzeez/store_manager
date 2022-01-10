@@ -11,11 +11,11 @@ const path = require("path");
 dotenv.config();
 
 // MIDDLEWARE
-app.use(cors());
-app.use(express.json());
-// app.use("Access-Control-Allow-Origin", "*")
 app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://alausa-abdulazeez.github.io'"
+  );
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
@@ -23,6 +23,9 @@ app.use(function (req, res, next) {
 
   next();
 });
+app.use(cors());
+app.use(express.json());
+// app.use("Access-Control-Allow-Origin", "*")
 
 // ROUTES
 app.use("/api/auth/", authRoute);
