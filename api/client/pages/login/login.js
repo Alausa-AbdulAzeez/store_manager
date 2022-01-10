@@ -25,8 +25,8 @@ const handleLogin = async (e) => {
         method: "post",
         headers: {
           "Content-Type": "application/json",
-          "X-Requested-With": "XMLHttpRequest",
-          "Access-Control-Allow-Origin": "*",
+          // "X-Requested-With": "XMLHttpRequest",
+          // "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify(body),
       }
