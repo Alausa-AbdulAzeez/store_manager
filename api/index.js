@@ -13,6 +13,10 @@ dotenv.config();
 // MIDDLEWARE
 app.use(cors());
 app.use(express.json());
+// app.use("Access-Control-Allow-Origin", "*")
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+});
 
 // ROUTES
 app.use("/api/auth/", authRoute);
