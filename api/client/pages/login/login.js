@@ -23,7 +23,10 @@ const handleLogin = async (e) => {
       "https://fast-ridge-96854.herokuapp.com/https://zstore-manager.herokuapp.com/api/auth/login",
       {
         method: "post",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+        },
         body: JSON.stringify(body),
       }
     ).then(async (response) => {
