@@ -28,6 +28,7 @@ const handleLogin = async (e) => {
           "X-Requested-With": "XMLHttpRequest",
           "Access-Control-Allow-Origin": "*",
         },
+        credentials: true,
         body: JSON.stringify(body),
       }
     ).then(async (response) => {
