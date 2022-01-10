@@ -20,13 +20,13 @@ const handleLogin = async (e) => {
 
   if (e.target.name === "loginBtn") {
     const response = await fetch(
-      "https://fast-ridge-96854.herokuapp.com/https://zstore-manager.herokuapp.com/api/auth/login",
+      "https://zstore-manager.herokuapp.com/api/auth/login",
       {
         method: "post",
         headers: {
           "Content-Type": "application/json",
           // "X-Requested-With": "XMLHttpRequest",
-          // "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify(body),
       }
