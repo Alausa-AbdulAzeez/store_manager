@@ -8,22 +8,22 @@ const productRoute = require("./routes/product");
 const userRoute = require("./routes/user");
 const path = require("path");
 
+app.use(cors());
 dotenv.config();
 
 // MIDDLEWARE
-app.use(function (req, res, next) {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://alausa-abdulazeez.github.io'"
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+// app.use(function (req, res, next) {
+//   res.setHeader(
+//     "Access-Control-Allow-Origin",
+//     "https://alausa-abdulazeez.github.io'"
+//   );
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
 
-  next();
-});
-app.use(cors());
+//   next();
+// });
 app.use(express.json());
 // app.use("Access-Control-Allow-Origin", "*")
 

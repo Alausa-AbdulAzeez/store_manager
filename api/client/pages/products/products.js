@@ -127,16 +127,12 @@ const handleDelete = async (id) => {
 
 const getProducts = async () => {
   try {
-    const response = await fetch(
-      "https://zstore-manager.herokuapp.com/api/products/",
-      {
-        method: "get",
-        headers: {
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-      }
-    );
+    const response = await fetch("https://zsapi.herokuapp.com/api/products/", {
+      method: "get",
+      headers: {
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    });
     const unsortedProducts = await response.json();
     products = unsortedProducts.sort((a, b) => b.updated_at - a.updated_at);
 

@@ -1,12 +1,10 @@
 const userProfile = document.querySelector(".user");
 const user = JSON.parse(localStorage.getItem("user"));
 
-const checkUser = () => {
-  !user &&
-    window.location.assign(
-      "http://127.0.0.1:5500/client/pages/login/login.html"
-    );
-};
+!user &&
+  window.location.assign(
+    "https://zstore-manager.herokuapp.com/pages/login/login.html"
+  );
 
 userProfile.innerHTML = `<img
               src=${
@@ -38,8 +36,8 @@ const handleNavToSaleRecords = () => {
   );
 };
 
-const handleLogout = () => {
-  localStorage.removeItem("user");
-};
+// const handleLogout = () => {
+//   localStorage.removeItem("user");
+// };
 
-window.addEventListener("load", checkUser);
+window.addEventListener("load", checkUser());

@@ -1,36 +1,67 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>login</title>
-    <link rel="stylesheet" href="./pages/login/login.css" />
+    <link rel="stylesheet" href="./pages/home/home.css" />
+    <script src="./pages/home/home.js"></script>
+    <script src="./all.js"></script>
+    <title>Document</title>
   </head>
   <body>
-    <div class="registerContainer">
-      <div class="formContainer">
-        <span class="title">SIGN IN</span>
-        <form class="inputs">
-          <input
-            type="email"
-            class="emailInput"
-            placeholder="username"
-            name="email"
-          />
-          <input
-            type="password"
-            class="passwordInput"
-            placeholder="password"
-            name="password"
-          />
-          <button class="formBtn" name="loginBtn">LOGIN</button>
-        </form>
-        <span class="errorInfo"> </span>
-
-        <span class="ps">Forgot password?</span>
-        <span class="ps">Sign Up</span>
-      </div>
-    </div>
-    <script type="module" src="./pages/login/login.js"></script>
+    <main class="main">
+      <section class="glass">
+        <div class="dashboard">
+          <div class="user"></div>
+          <div class="links">
+            <div class="link active">
+              <i class="fas fa-home sidebarIcon"></i>
+              Home
+            </div>
+            <div class="link" onclick="handleNavToProducts()">
+              <i class="fas fa-store sidebarIcon"></i>
+              Products
+            </div>
+            <div class="link" onclick="handleNavToAttendants()">
+              <i class="fas fa-user-tie sidebarIcon"></i>
+              Attendants
+            </div>
+            <div class="link" onclick="handleNavToSaleRecords()">
+              <i class="fas fa-chart-bar sidebarIcon"></i>
+              Sale records
+            </div>
+          </div>
+          <div class="logOut" onclick="handleLogout()">
+            <h3>Logout</h3>
+          </div>
+        </div>
+        <div class="mainContent">
+          <div class="mainContentTitle">Store Manager</div>
+          <div class="cards">
+            <div class="card" onclick="handleNavToProducts()">
+              <div class="products">
+                <i class="fas fa-store sidebarIcon"></i>
+                Products
+              </div>
+            </div>
+            <div class="card" onclick="handleNavToAttendants()">
+              <div class="attendants">
+                <i class="fas fa-user-tie sidebarIcon"></i>
+                Attendants
+              </div>
+            </div>
+            <div class="card">
+              <div class="link" onclick="handleNavToSaleRecords()">
+                <i class="fas fa-chart-bar sidebarIcon"></i>
+                Sale records
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
   </body>
 </html>
