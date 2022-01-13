@@ -24,8 +24,7 @@ const handleLogin = async (e) => {
     body: JSON.stringify(body),
   }).then(async (response) => {
     console.log("respo");
-    console.log(await response.json());
-    console.log(await response.json(body));
+    console.log(response.json());
 
     // if (response.ok) {
     //   const user = await response.json(body);
