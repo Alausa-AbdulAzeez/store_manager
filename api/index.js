@@ -7,13 +7,13 @@ const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const userRoute = require("./routes/user");
 const path = require("path");
-const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 dotenv.config();
 
+const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/")));
+  app.use(express.static(path.join(__dirname, "/client")));
 }
 
 // MIDDLEWARE
@@ -37,7 +37,7 @@ app.use("/api/auth/", authRoute);
 app.use("/api/products/", productRoute);
 app.use("/api/users/", userRoute);
 
-app.use(express.static(path.join(__dirname, "/client/")));
+// app.use(express.static(path.join(__dirname, "/client/")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/client/", "index.html"));
