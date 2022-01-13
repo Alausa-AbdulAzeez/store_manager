@@ -10,10 +10,8 @@ router.post("/signup", async (req, res) => {
   try {
     // await client.connect();
     const { email, profile_picture, isAdmin, isAttendant } = req.body;
-    const password = await CryptoJS.AES.encrypt(
-      req.body.password,
-      process.env.SEC_KEY
-    ).toString();
+    const password = req.body.password;
+
     const newPersonnel = await pool.query(
       `INSERT INTO personnel (email, password, profile_picture, isAdmin,isAttendant) VALUES($1,$2,$3,$4,$5) RETURNING *`,
       [email, password, profile_picture, isAdmin, isAttendant]
