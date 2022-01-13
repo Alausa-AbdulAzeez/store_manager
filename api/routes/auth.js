@@ -8,9 +8,9 @@ const pool = require("../db/db");
 
 router.post("/signup", async (req, res) => {
   try {
-    await client.connect();
+    // await client.connect();
     const { email, profile_picture, isAdmin, isAttendant } = req.body;
-    const password = CryptoJS.AES.encrypt(
+    const password = await CryptoJS.AES.encrypt(
       req.body.password,
       process.env.SEC_KEY
     ).toString();
@@ -20,7 +20,7 @@ router.post("/signup", async (req, res) => {
     );
     res.status(201).json(newPersonnel.rows[0]);
   } catch (error) {
-    res.status(500).json(error);
+    // res.status(500).json(error);
   }
   // client.end();
 });
