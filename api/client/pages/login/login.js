@@ -23,7 +23,7 @@ const handleLogin = async (e) => {
     },
     body: JSON.stringify(body),
   }).then(async (response) => {
-    console.log("respo");
+    console.log(response);
     console.log(response.json());
 
     // if (response.ok) {
