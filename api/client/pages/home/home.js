@@ -1,5 +1,5 @@
-// const user = JSON.parse(localStorage.getItem("user"));
-// !user && window.location.assign("/pages/login/login.html");
+const user = JSON.parse(localStorage.getItem("user"));
+!user && window.location.assign("/pages/login/login.html");
 
 const userProfile = document.querySelector(".user");
 const prod = document.querySelector(".products");
@@ -18,15 +18,15 @@ const attendants = document.querySelector(".attendants");
 //             `;
 
 const handleNavToProducts = () => {
-  window.location.assign("/client/pages/products/products.html");
+  window.location.assign("/pages/products/products.html");
 };
 
 const handleNavToAttendants = () => {
-  window.location.assign("/client/pages/attendants/attendants.html");
+  window.location.assign("/pages/attendants/attendants.html");
 };
 
 const handleNavToSaleRecords = () => {
-  window.location.assign("/client/pages/saleRecords/saleRecords.html");
+  window.location.assign("/pages/saleRecords/saleRecords.html");
 };
 
 const handleLogout = () => {

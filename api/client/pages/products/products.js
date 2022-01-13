@@ -21,33 +21,23 @@ userProfile.innerHTML = `<img
             `;
 
 const handleNavToProducts = () => {
-  window.location.assign(
-    "https://priceless-varahamihira-305b53.netlify.app/pages/products/products.html"
-  );
+  window.location.assign("/pages/products/products.html");
 };
 
 const handleEditProduct = () => {
-  window.location.assign(
-    "https://priceless-varahamihira-305b53.netlify.app/pages/editProduct/editProduct.html"
-  );
+  window.location.assign("/pages/editProduct/editProduct.html");
 };
 
 const handleNavToSaleRecords = () => {
-  window.location.assign(
-    "https://priceless-varahamihira-305b53.netlify.app/pages/saleRecords/saleRecords.html"
-  );
+  window.location.assign("/pages/saleRecords/saleRecords.html");
 };
 
 const backHome = () => {
-  window.location.assign(
-    "https://priceless-varahamihira-305b53.netlify.app/pages/home/home.html"
-  );
+  window.location.assign("/pages/home/home.html");
 };
 
 const handleNavToAttendants = () => {
-  window.location.assign(
-    "https://priceless-varahamihira-305b53.netlify.app/pages/attendants/attendants.html"
-  );
+  window.location.assign("/pages/attendants/attendants.html");
 };
 
 const handleItemsSold = async (id, personnelId) => {
@@ -79,9 +69,7 @@ const handleItemsSold = async (id, personnelId) => {
               },
             }).then(async (response3) => {
               if (response3.ok) {
-                window.location.assign(
-                  "https://priceless-varahamihira-305b53.netlify.app/pages/products/products.html"
-                );
+                window.location.assign("/pages/products/products.html");
               }
             });
           }
@@ -94,9 +82,7 @@ const handleItemsSold = async (id, personnelId) => {
 };
 
 const handleCreateNewProduct = () => {
-  window.location.assign(
-    "https://priceless-varahamihira-305b53.netlify.app/pages/newProduct/newProduct.html"
-  );
+  window.location.assign("/pages/newProduct/newProduct.html");
 };
 
 const handleDelete = async (id) => {
@@ -114,7 +100,7 @@ const handleDelete = async (id) => {
 
 const getProducts = async () => {
   try {
-    const response = await fetch("https://zsapi.herokuapp.com/api/products/", {
+    const response = await fetch("/api/products", {
       method: "get",
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
