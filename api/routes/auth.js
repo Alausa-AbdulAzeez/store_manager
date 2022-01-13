@@ -8,7 +8,7 @@ const pool = require("../db/db");
 
 router.post("/signup", async (req, res) => {
   try {
-    // await client.connect();
+    await client.connect();
     const { email, profile_picture, isAdmin, isAttendant } = req.body;
     const password = CryptoJS.AES.encrypt(
       req.body.password,

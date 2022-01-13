@@ -4,6 +4,7 @@ let inputs = [];
 
 const handleChange = async (e) => {
   inputs = { ...inputs, [e.target.name]: e.target.value };
+  console.log(inputs);
 };
 
 const handleRegister = async (e) => {
@@ -18,7 +19,9 @@ const handleRegister = async (e) => {
       body: JSON.stringify(body),
     }).then(async (response) => {
       if (response.ok) {
-        window.location.assign("/client/pages/attendants/attendants.html");
+        console.log(await response);
+        console.log(await response.json());
+        // window.location.assign("/client/pages/attendants/attendants.html");
       }
     });
   } catch (error) {

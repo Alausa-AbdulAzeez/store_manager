@@ -12,8 +12,6 @@
       <div class="formContainer">
         <span class="title">CREATE AN ACCOUNT</span>
         <div class="inputs">
-          <input type="text" placeholder="firstname" />
-          <input type="text" placeholder="lastname" />
           <input
             type="email"
             name="email"
@@ -24,6 +22,24 @@
             type="password"
             name="password"
             placeholder="password"
+            onchange="handleChange(event)"
+          />
+          <input
+            type="text"
+            name="profile_picture"
+            placeholder="profile_picture"
+            onchange="handleChange(event)"
+          />
+          <input
+            type="text"
+            name="isAdmin"
+            placeholder="isAdmin"
+            onchange="handleChange(event)"
+          />
+          <input
+            type="text"
+            name="isAttendant"
+            placeholder="isAttendant"
             onchange="handleChange(event)"
           />
         </div>
