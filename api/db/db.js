@@ -16,4 +16,12 @@ const pool = new Pool(
   process.env.NODE_ENV === "production" ? proConfig : devConfig
 );
 
+pool.connect((err) => {
+  if (err) {
+    throw err;
+  } else {
+    console.log("connected");
+  }
+});
+
 module.exports = pool;

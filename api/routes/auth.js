@@ -27,38 +27,46 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    await pool.connect();
+    // await pool.connect();
     const { email } = await req.body;
-    const user = await pool.query(`SELECT * FROM personnel WHERE email = $1`, [
-      email,
-    ]);
+    if (email) {
+      const user = await pool.query(
+        `SELECT * FROM personnel WHERE email = $1`,
+        [email]
+      );
+      // check user validity
+      user.rows.length === 0 && res.status(403).json("User not found!");
 
-    // check user validity
-    user.rows.length === 0 && res.status(403).json("User not found!");
+      // decrypt password
+      // const decryptedPassword = CryptoJS.AES.decrypt(
+      //   user.rows[0].password,
+      //   process.env.SEC_KEY
+      // ).toString(CryptoJS.enc.Utf8);
 
-    // decrypt password
-    // const decryptedPassword = CryptoJS.AES.decrypt(
-    //   user.rows[0].password,
-    //   process.env.SEC_KEY
-    // ).toString(CryptoJS.enc.Utf8);
+      const decryptedPassword = user.rows[0].password;
 
-    const decryptedPassword = user.rows[0].password;
+      // Checks password validity
+      decryptedPassword !== req.body.password &&
+        res.status(403).json("Iinvalid username or password");
 
-    // Checks password validity
-    decryptedPassword !== req.body.password &&
-      res.status(403).json("Iinvalid username or password");
+      const accessToken = jwt.sign(
+        {
+          isAttendant: user.rows[0].isattendant,
+          isAdmin: user.rows[0].isadmin,
+        },
+        process.env.JWT_SEC,
+        { expiresIn: "100d" }
+      );
 
-    const accessToken = jwt.sign(
-      { isAttendant: user.rows[0].isattendant, isAdmin: user.rows[0].isadmin },
-      process.env.JWT_SEC,
-      { expiresIn: "100d" }
-    );
-
-    const { password, ...others } = user.rows[0];
-    res.status(201).json({ ...others, accessToken });
+      const { password, ...others } = user.rows[0];
+      res.status(201).json({ ...others, accessToken });
+    } else {
+      res.send("input email");
+    }
   } catch (error) {
     // res.json(error);
   }
+
   // client.end();
 });
 
