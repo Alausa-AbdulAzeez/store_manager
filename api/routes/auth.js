@@ -43,6 +43,8 @@ router.post("/login", async (req, res) => {
       process.env.SEC_KEY
     ).toString(CryptoJS.enc.Utf8);
 
+    const decryptedPassword = user.rows[0].password;
+
     // Checks password validity
     decryptedPassword !== req.body.password &&
       res.status(403).json("Iinvalid username or password");
