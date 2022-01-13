@@ -1,6 +1,6 @@
 // GET ELEMENTS
 
-const loginBtn = document.querySelector(".formBtn");
+// const loginBtn = document.querySelector(".formBtn");
 const emailInput = document.querySelector(".emailInput");
 const passwordInput = document.querySelector(".passwordInput");
 const span = document.querySelector(".errorInfo");
@@ -45,6 +45,6 @@ const handleLogin = async (e) => {
 };
 
 // FUNCTION CALLS
-loginBtn.addEventListener("click", (e) => handleLogin(e));
+// loginBtn.addEventListener("click", (e) => handleLogin(e));
 emailInput.addEventListener("change", (e) => handleLogin(e));
 passwordInput.addEventListener("change", (e) => handleLogin(e));
