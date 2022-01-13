@@ -15,7 +15,7 @@ const handleChange = (e) => {
 
 const handleLogin = async (e) => {
   e.preventDefault();
-  const response = await fetch("/api/auth/login", {
+  const response = await fetch("api/auth/login", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
