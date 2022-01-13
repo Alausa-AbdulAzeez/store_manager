@@ -46,5 +46,9 @@ const handleLogin = async (e) => {
 
 // FUNCTION CALLS
 // loginBtn.addEventListener("click", (e) => handleLogin(e));
-emailInput.addEventListener("change", (e) => handleLogin(e));
-passwordInput.addEventListener("change", (e) => handleLogin(e));
+if (emailInput) {
+  emailInput.addEventListener("change", (e) => handleLogin(e));
+}
+if (passwordInput) {
+  passwordInput.addEventListener("change", (e) => handleLogin(e));
+}
