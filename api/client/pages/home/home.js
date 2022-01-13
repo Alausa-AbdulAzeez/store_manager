@@ -1,10 +1,7 @@
 const userProfile = document.querySelector(".user");
 const user = JSON.parse(localStorage.getItem("user"));
 
-!user &&
-  window.location.assign(
-    "https://zstore-manager.herokuapp.com/pages/login/login.html"
-  );
+!user && window.location.assign("/client/pages/login/login.html");
 
 userProfile.innerHTML = `<img
               src=${
@@ -19,25 +16,19 @@ userProfile.innerHTML = `<img
             `;
 
 const handleNavToProducts = () => {
-  window.location.assign(
-    "http://127.0.0.1:5500/client/pages/products/products.html"
-  );
+  window.location.assign("/client/pages/products/products.html");
 };
 
 const handleNavToAttendants = () => {
-  window.location.assign(
-    "http://127.0.0.1:5500/client/pages/attendants/attendants.html"
-  );
+  window.location.assign("/client/pages/attendants/attendants.html");
 };
 
 const handleNavToSaleRecords = () => {
-  window.location.assign(
-    "http://127.0.0.1:5500/client/pages/saleRecords/saleRecords.html"
-  );
+  window.location.assign("/client/pages/saleRecords/saleRecords.html");
 };
 
-// const handleLogout = () => {
-//   localStorage.removeItem("user");
-// };
+const handleLogout = () => {
+  localStorage.removeItem("user");
+};
 
 window.addEventListener("load", checkUser());

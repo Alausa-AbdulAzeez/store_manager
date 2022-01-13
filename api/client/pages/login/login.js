@@ -19,28 +19,27 @@ const handleLogin = async (e) => {
   const body = { email, password };
 
   if (e.target.name === "loginBtn") {
-    const response = await fetch(
-      "https://zstore-manager.herokuapp.com/api/auth/login",
-      // https://zstore-manager.herokuapp.com/  https://zsapi.herokuapp.com/
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const response = await fetch("/api/auth/login", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    }).then(async (response) => {
+      console.log("respo");
+      console.log(await response.json());
+      console.log(await response.json(body));
 
-        body: JSON.stringify(body),
-      }
-    ).then(async (response) => {
-      const user = await response.json(body);
-      localStorage.setItem("user", JSON.stringify(user));
-      if (response.ok) {
-        window.location.assign(
-          "http://127.0.0.1:5500/client/pages/home/home.html"
-        );
-      } else {
-        span.classList.add("errorIndicator");
-        span.textContent = "Incorrect email or password";
-      }
+      // if (response.ok) {
+      //   const user = await response.json(body);
+      //   localStorage.setItem("user", JSON.stringify(user));
+      // window.location.assign(
+      //     "https://alausa-abdulazeez.github.io/index.html"
+      //   );
+      // } else {
+      //   span.classList.add("errorIndicator");
+      //   span.textContent = "Incorrect email or password";
+      // }
     });
   }
 };

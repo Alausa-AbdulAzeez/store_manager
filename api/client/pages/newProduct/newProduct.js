@@ -16,22 +16,16 @@ const handleSubmit = async (e) => {
   const body = { ...inputs, product_categories: categories };
 
   try {
-    const response = await fetch(
-      "https://zstore-manager.herokuapp.com/api/products/create",
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-        body: JSON.stringify(body),
-      }
-    ).then(async (response) => {
+    const response = await fetch("api/products/create", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+      body: JSON.stringify(body),
+    }).then(async (response) => {
       if (response.ok) {
-        window.location.assign(
-          "http://127.0.0.1:5500/client/pages/products/products.html"
-        );
+        window.location.assign("/client/pages/products/products.html");
       }
     });
   } catch (error) {

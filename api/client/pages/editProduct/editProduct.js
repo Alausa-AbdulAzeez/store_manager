@@ -24,16 +24,12 @@ const handleCat = (e) => {
 
 const handleEditProduct = async (id) => {
   try {
-    const response = await fetch(
-      `https://zstore-manager.herokuapp.com/api/products/${id}`,
-      {
-        method: "get",
-        headers: {
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-      }
-    ).then(async (response) => {
+    const response = await fetch(`/api/products/${id}`, {
+      method: "get",
+      headers: {
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    }).then(async (response) => {
       product = await response.json();
       product_id = product[0].product_id;
       newProductHeader.textContent = `Edit ` + product[0].product_name;
@@ -48,22 +44,16 @@ const handleSubmit = async (e) => {
   const body = { ...updatedProduct };
 
   try {
-    const response = await fetch(
-      `https://zstore-manager.herokuapp.com/api/products/update/${product_id}`,
-      {
-        method: "put",
-        headers: {
-          "Content-Type": "application/json",
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-        body: JSON.stringify(body),
-      }
-    ).then(async (response) => {
+    const response = await fetch(`/api/products/update/${product_id}`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+      body: JSON.stringify(body),
+    }).then(async (response) => {
       if (response.ok) {
-        window.location.assign(
-          "http://127.0.0.1:5500/client/pages/products/products.html"
-        );
+        window.location.assign("/client/pages/products/products.html");
       }
     });
   } catch (error) {
@@ -73,16 +63,12 @@ const handleSubmit = async (e) => {
 
 const getProducts = async () => {
   try {
-    const response = await fetch(
-      "https://zstore-manager.herokuapp.com/api/products/",
-      {
-        method: "get",
-        headers: {
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-      }
-    );
+    const response = await fetch("/api/products/", {
+      method: "get",
+      headers: {
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    });
     unsortedProducts = await response.json();
     products = unsortedProducts.sort((a, b) => b.updated_at - a.updated_at);
 

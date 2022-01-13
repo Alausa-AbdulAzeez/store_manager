@@ -22,74 +22,65 @@ userProfile.innerHTML = `<img
 
 const handleNavToProducts = () => {
   window.location.assign(
-    "http://127.0.0.1:5500/client/pages/products/products.html"
+    "https://priceless-varahamihira-305b53.netlify.app/pages/products/products.html"
   );
 };
 
 const handleEditProduct = () => {
   window.location.assign(
-    "http://127.0.0.1:5500/client/pages/editProduct/editProduct.html"
+    "https://priceless-varahamihira-305b53.netlify.app/pages/editProduct/editProduct.html"
   );
 };
 
 const handleNavToSaleRecords = () => {
   window.location.assign(
-    "http://127.0.0.1:5500/client/pages/saleRecords/saleRecords.html"
+    "https://priceless-varahamihira-305b53.netlify.app/pages/saleRecords/saleRecords.html"
   );
 };
 
 const backHome = () => {
-  window.location.assign("http://127.0.0.1:5500/client/pages/home/home.html");
+  window.location.assign(
+    "https://priceless-varahamihira-305b53.netlify.app/pages/home/home.html"
+  );
 };
 
 const handleNavToAttendants = () => {
   window.location.assign(
-    "http://127.0.0.1:5500/client/pages/attendants/attendants.html"
+    "https://priceless-varahamihira-305b53.netlify.app/pages/attendants/attendants.html"
   );
 };
 
 const handleItemsSold = async (id, personnelId) => {
   try {
-    const response = await fetch(
-      `https://zstore-manager.herokuapp.com/api/users/items_sold/${personnelId}`,
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-      }
-    ).then(async (response) => {
+    const response = await fetch(`/api/users/items_sold/${personnelId}`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    }).then(async (response) => {
       if (response.ok) {
-        const response2 = await fetch(
-          `https://zstore-manager.herokuapp.com/api/users/items_sold/${personnelId}`,
-          {
-            method: "put",
-            headers: {
-              "Content-Type": "application/json",
-              token:
-                "Bearer " +
-                JSON.parse(localStorage.getItem("user")).accessToken,
-            },
-          }
-        ).then(async (response2) => {
+        const response2 = await fetch(`/api/users/items_sold/${personnelId}`, {
+          method: "put",
+          headers: {
+            "Content-Type": "application/json",
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        }).then(async (response2) => {
           if (response2.ok) {
-            const response3 = await fetch(
-              `https://zstore-manager.herokuapp.com/api/products/updateamount/${id}`,
-              {
-                method: "put",
-                headers: {
-                  "Content-Type": "application/json",
-                  token:
-                    "Bearer " +
-                    JSON.parse(localStorage.getItem("user")).accessToken,
-                },
-              }
-            ).then(async (response3) => {
+            const response3 = await fetch(`/api/products/updateamount/${id}`, {
+              method: "put",
+              headers: {
+                "Content-Type": "application/json",
+                token:
+                  "Bearer " +
+                  JSON.parse(localStorage.getItem("user")).accessToken,
+              },
+            }).then(async (response3) => {
               if (response3.ok) {
                 window.location.assign(
-                  "http://127.0.0.1:5500/client/pages/products/products.html"
+                  "https://priceless-varahamihira-305b53.netlify.app/pages/products/products.html"
                 );
               }
             });
@@ -104,22 +95,18 @@ const handleItemsSold = async (id, personnelId) => {
 
 const handleCreateNewProduct = () => {
   window.location.assign(
-    "http://127.0.0.1:5500/client/pages/newProduct/newProduct.html"
+    "https://priceless-varahamihira-305b53.netlify.app/pages/newProduct/newProduct.html"
   );
 };
 
 const handleDelete = async (id) => {
   try {
-    await fetch(
-      `https://zstore-manager.herokuapp.com/api/products/delete/${id}`,
-      {
-        method: "delete",
-        headers: {
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-      }
-    ).then(location.reload());
+    await fetch(`/api/products/delete/${id}`, {
+      method: "delete",
+      headers: {
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    }).then(location.reload());
   } catch (error) {
     console.log(error);
   }
@@ -181,17 +168,13 @@ const getProducts = async () => {
 const handleChange = async (e) => {
   inputText = e.target.value;
   try {
-    const response = await fetch(
-      `https://zstore-manager.herokuapp.com/api/products?name=${inputText}`,
-      {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-      }
-    );
+    const response = await fetch(`/api/products?name=${inputText}`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    });
     products = await response.json();
 
     mainRow.innerHTML =

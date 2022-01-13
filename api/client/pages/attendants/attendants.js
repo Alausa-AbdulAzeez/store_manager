@@ -19,23 +19,17 @@ userProfile.innerHTML = `<img
             `;
 
 const handleNavToProducts = () => {
-  window.location.assign(
-    "http://127.0.0.1:5500/client/pages/products/products.html"
-  );
+  window.location.assign("/client/pages/products/products.html");
 };
 
 const handleNavToSaleRecords = () => {
-  window.location.assign(
-    "http://127.0.0.1:5500/client/pages/saleRecords/saleRecords.html"
-  );
+  window.location.assign("/client/pages/saleRecords/saleRecords.html");
 };
 
 const handleNavToRegisterPage = () => {
   const user = JSON.parse(localStorage.getItem("user")).isadmin;
   if (user) {
-    window.location.assign(
-      "http://127.0.0.1:5500/client/pages/Register/register.html"
-    );
+    window.location.assign("/client/pages/Register/register.html");
   } else {
     console.log("Access denied");
   }
@@ -43,16 +37,12 @@ const handleNavToRegisterPage = () => {
 
 const handleMakeAdmin = async (id) => {
   try {
-    const response = await fetch(
-      `https://zstore-manager.herokuapp.com/api/users/${id}`,
-      {
-        method: "get",
-        headers: {
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-      }
-    ).then(async (response) => {
+    const response = await fetch(`/api/users/${id}`, {
+      method: "get",
+      headers: {
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    }).then(async (response) => {
       attebdant = await response.json();
       console.log(attebdant[0]);
       const updatedAttendant = await {
@@ -62,18 +52,15 @@ const handleMakeAdmin = async (id) => {
 
       const body = { ...updatedAttendant };
       console.log(body);
-      const response2 = await fetch(
-        `https://zstore-manager.herokuapp.com/api/users/update/${id}`,
-        {
-          method: "put",
-          headers: {
-            "Content-Type": "application/json",
-            token:
-              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-          },
-          body: JSON.stringify(body),
-        }
-      );
+      const response2 = await fetch(`/api/users/update/${id}`, {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+        body: JSON.stringify(body),
+      });
       console.log(await response2.json());
     });
     // .then(location.reload());
@@ -86,17 +73,13 @@ const handleMakeAdmin = async (id) => {
 
 const handleNavToAttendants = async (e) => {
   try {
-    const response = await fetch(
-      "https://zstore-manager.herokuapp.com/api/users/",
-      {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-      }
-    );
+    const response = await fetch("/api/users/", {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    });
     unsortedAttendants = await response.json();
     attendants = unsortedAttendants.sort((a, b) => b.updated_at - a.updated_at);
 
@@ -150,17 +133,13 @@ const handleChange = async (e) => {
   inputText = e.target.value;
 
   try {
-    const response = await fetch(
-      `https://zstore-manager.herokuapp.com/api/users?name=${inputText}`,
-      {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-          token:
-            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        },
-      }
-    );
+    const response = await fetch(`/api/users?name=${inputText}`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    });
     unsortedAttendants = await response.json();
     attendants = unsortedAttendants.sort((a, b) => b.updated_at - a.updated_at);
 
@@ -218,7 +197,7 @@ const handleLogout = () => {
 
 // BACK HOME
 const backHome = () => {
-  window.location.assign("http://127.0.0.1:5500/client/pages/home/home.html");
+  window.location.assign("/client/pages/home/home.html");
 };
 
 window.addEventListener("load", handleNavToAttendants);

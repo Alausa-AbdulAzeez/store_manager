@@ -29,7 +29,7 @@ CREATE TABLE sales(
   order_date timestamp DEFAULT NOW(),
   amount INT,
   personnel_id INT
-)
+);
 
 -- 1
 CREATE OR REPLACE FUNCTION trigger_set_timestamp()
@@ -48,6 +48,11 @@ EXECUTE PROCEDURE trigger_set_timestamp();
 
 CREATE TRIGGER set_timestamp
 BEFORE UPDATE ON personnel
+FOR EACH ROW
+EXECUTE PROCEDURE trigger_set_timestamp();
+
+CREATE TRIGGER set_timestamp
+BEFORE UPDATE ON sales
 FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
