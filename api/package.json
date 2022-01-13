@@ -8,7 +8,8 @@
     "npm": "7.21.0"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "heroku-postbuild": "cd client && npm install"
   },
   "author": "",
   "license": "ISC",
