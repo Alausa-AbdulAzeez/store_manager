@@ -1,6 +1,6 @@
 console.log("you home");
 const user = JSON.parse(localStorage.getItem("user"));
-!user && window.location.assign("/client/pages/login/login.html");
+!user && window.location.assign("/pages/login/login.html");
 
 const userProfile = document.querySelector(".user");
 
