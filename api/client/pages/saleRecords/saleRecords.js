@@ -187,7 +187,7 @@ const handleLogout = () => {
 
 // BACK HOME
 const handleNavBackHome = () => {
-  window.location.assign("/client/pages/home/home.html");
+  window.location.assign("/index.html");
 };
 
 // ADD EVENT LISTENERS

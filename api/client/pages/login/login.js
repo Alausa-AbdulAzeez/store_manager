@@ -29,7 +29,7 @@ const handleLogin = async (e) => {
     if (response.ok) {
       const user = await response.json();
       localStorage.setItem("user", JSON.stringify(user));
-      window.location.assign("/client/pages/home/home.html");
+      window.location.assign("/index.html");
     } else {
       span.classList.add("errorIndicator");
       span.textContent = "Incorrect email or password";

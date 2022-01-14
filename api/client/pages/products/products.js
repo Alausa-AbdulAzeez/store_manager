@@ -43,7 +43,7 @@ const handleNavToSaleRecords = () => {
 };
 
 const handleNavBackHome = () => {
-  window.location.assign("/pages/home/home.html");
+  window.location.assign("/index.html");
 };
 
 const handleNavToAttendants = () => {

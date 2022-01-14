@@ -23,7 +23,7 @@ const handleRegister = async (e) => {
       body: JSON.stringify(body),
     }).then(async (response) => {
       if (response.ok) {
-        window.location.assign("/client/pages/attendants/attendants.html");
+        window.location.assign("/pages/attendants/attendants.html");
       }
     });
   } catch (error) {
