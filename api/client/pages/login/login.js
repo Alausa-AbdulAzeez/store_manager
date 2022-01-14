@@ -10,7 +10,7 @@ let password;
 let body = {};
 
 const handleChange = (e) => {
-  body = { ...body, [e.tatrget.name]: e.target.value };
+  body = { ...body, [e.target.name]: e.target.value };
 };
 
 const handleLogin = async (e) => {
