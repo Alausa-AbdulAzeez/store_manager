@@ -1,6 +1,6 @@
 const userProfile = document.querySelector(".user");
 
-const NavToProducts = document.querySelector(".NavToProducts");
+const NavToProducts = document.querySelector("#NavToProducts");
 const NavToAttendants = document.querySelector(".NavToAttendants");
 const NavToSaleRecords = document.querySelector(".NavToSaleRecords");
 const logOut = document.querySelector(".logOut");
