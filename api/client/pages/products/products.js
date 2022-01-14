@@ -167,7 +167,8 @@ const handleLogout = () => {
 };
 
 const handleChange = async (e) => {
-  inputText = e.target.value;
+  inputText = e.target.value.toLowerCase();
+
   try {
     const response = await fetch(`/api/products?name=${inputText}`, {
       method: "get",
