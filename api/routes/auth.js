@@ -28,10 +28,9 @@ router.post("/signup", async (req, res) => {
 // LOGIN
 
 router.post("/login", async (req, res) => {
+  await pool.connect();
   try {
     const { email, password } = req.body;
-    console.log(email, password);
-
     if (email && password) {
       const user = await pool.query(
         `SELECT * FROM personnel WHERE email = $1`,
@@ -70,7 +69,7 @@ router.post("/login", async (req, res) => {
       res.status(403).json("Please input credentials");
     }
   } catch (error) {
-    res.json(error);
+    res.status(500).json(error);
   }
 });
 
