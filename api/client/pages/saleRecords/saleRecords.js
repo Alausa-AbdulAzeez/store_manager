@@ -175,6 +175,7 @@ const handleChange = async (e) => {
 // LOGOUT
 const handleLogout = () => {
   localStorage.removeItem("user");
+  location.reload();
 };
 
 // BACK HOME
