@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../../dist/css/all.css" />
+
     <link rel="stylesheet" href="./editProduct.css" />
     <script src="../../all.js"></script>
     <title>Document</title>
@@ -25,24 +25,25 @@
             <div class="addProductItem">
               <label for="">Title</label>
               <input
+                class="product_name"
                 name="product_name"
                 type="text"
                 placeholder="e.g Swim wear"
-                onchange="handleChange(event)"
               />
             </div>
             <div class="addProductItem">
               <label for="">Price</label>
               <input
+                class="product_price"
                 type="number"
                 placeholder="e.g $30"
                 name="product_price"
-                onchange="handleChange(event)"
               />
             </div>
             <div class="addProductItem">
               <label for="">Description</label>
               <input
+                class="product_desc"
                 name="product_desc"
                 type="text"
                 placeholder="e.g Lorem ipsum, dolor sit amet"
@@ -52,18 +53,18 @@
             <div class="addProductItem">
               <label for="">Image</label>
               <input
+                class="product_img"
                 name="product_img"
                 type="text"
                 placeholder="e.g abc.png"
-                onchange="handleChange(event)"
               />
             </div>
             <div class="addProductItem">
               <label for="">Categories</label>
               <input
+                class="product_categories"
                 type="text"
                 placeholder="men, yellow"
-                onchange="handleCat(event)"
                 name="product_categories"
               />
             </div>
@@ -71,16 +72,14 @@
             <div class="addProductItem">
               <label for="">Quantity</label>
               <input
+                class="product_quantity"
                 type="number"
                 placeholder="e.g 50"
-                onchange="handleChange(event)"
                 name="total_no_available"
               />
             </div>
           </form>
-          <button class="createBtn" onclick="handleSubmit(event)">
-            Save changes
-          </button>
+          <button class="createBtn">Save changes</button>
         </div>
       </section>
     </main>

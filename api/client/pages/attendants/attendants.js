@@ -1,9 +1,13 @@
-// onclick = "handleNavToAttendants()";
-// get all attendants
-
 const mainRow = document.querySelector(".mainRow");
 const user = JSON.parse(localStorage.getItem("user"));
 const userProfile = document.querySelector(".user");
+const backHome = document.querySelector(".backHome");
+const NavToProducts = document.querySelector(".NavToProducts");
+const NavToAttendants = document.querySelector(".NavToAttendants");
+const NavToSaleRecords = document.querySelector(".NavToSaleRecords");
+const logOut = document.querySelector(".logOut");
+const searchInput = document.querySelector(".searchInput");
+const NavToRegisterPage = document.querySelector(".NavToRegisterPage");
 let attebdant = {};
 
 userProfile.innerHTML = `<img
@@ -197,8 +201,20 @@ const handleLogout = () => {
 };
 
 // BACK HOME
-const backHome = () => {
+const handleNavBackHome = () => {
   window.location.assign("/client/pages/home/home.html");
 };
+
+// ADD EVENT LISTENERS
+backHome && backHome.addEventListener("click", handleNavBackHome);
+NavToProducts && NavToProducts.addEventListener("click", handleNavToProducts);
+NavToAttendants &&
+  NavToAttendants.addEventListener("click", handleNavToAttendants);
+NavToSaleRecords &&
+  NavToSaleRecords.addEventListener("click", handleNavToSaleRecords);
+logOut && logOut.addEventListener("click", handleLogout);
+searchInput && searchInput.addEventListener("input", (e) => handleChange(e));
+NavToRegisterPage &&
+  NavToRegisterPage.addEventListener("click", handleNavToRegisterPage);
 
 window.addEventListener("load", handleNavToAttendants);

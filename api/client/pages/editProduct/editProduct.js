@@ -1,6 +1,14 @@
 const productsBtn = document.querySelector(".productsBtn");
 const mainRow = document.querySelector(".mainRow");
 const addAction = document.querySelector(".addAction");
+const product_name_input = document.querySelector(".product_name");
+const product_price_input = document.querySelector(".product_price");
+const product_desc_input = document.querySelector(".product_desc");
+const product_img_input = document.querySelector(".product_img");
+const product_categories_input = document.querySelector(".product_categories");
+const product_quantity_input = document.querySelector(".product_quantity");
+const createBtn = document.querySelector(".createBtn");
+
 let newProductHeader = document.querySelector(".newProductHeader");
 
 let products = [];
@@ -108,5 +116,19 @@ const getProducts = async () => {
     console.log(error);
   }
 };
+
+product_name_input &&
+  product_name_input.addEventListener("change", (e) => handleChange(e));
+product_price_input &&
+  product_price_input.addEventListener("change", (e) => handleChange(e));
+product_desc_input &&
+  product_desc_input.addEventListener("change", (e) => handleChange(e));
+product_img_input &&
+  product_img_input.addEventListener("change", (e) => handleChange(e));
+product_categories_input &&
+  product_categories_input.addEventListener("change", (e) => handleCat(e));
+product_quantity_input &&
+  product_quantity_input.addEventListener("change", (e) => handleChange(e));
+createBtn && createBtn.addEventListener("click", (e) => handleSubmit(e));
 
 window.addEventListener("load", getProducts);

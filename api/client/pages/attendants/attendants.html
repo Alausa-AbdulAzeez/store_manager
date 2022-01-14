@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../../dist/css/all.css" />
     <link rel="stylesheet" href="./attendants.css" />
     <script src="../../all.js"></script>
     <title>Document</title>
@@ -18,24 +17,24 @@
             
           </div>
           <div class="links">
-            <div class="link " onclick="backHome()">
+            <div class="link backHome">
               <i class="fas fa-home sidebarIcon"></i>
               Home
             </div>
-            <div class="link " onclick="handleNavToProducts()">
+            <div class="link NavToProducts" >
               <i class="fas fa-store sidebarIcon"></i>
               Products
             </div>
-            <div class="link active" onclick="handleNavToAttendants()">
+            <div class="link active NavToAttendants" >
               <i class="fas fa-user-tie sidebarIcon"></i>
               Attendants
             </div>
-            <div class="link" onclick="handleNavToSaleRecords()">
+            <div class="link NavToSaleRecords" >
               <i class="fas fa-chart-bar sidebarIcon"></i>
               Sale records
             </div>
           </div>
-          <div class="logOut" onclick="handleLogout()">
+          <div class="logOut" >
             <h3>Logout</h3>
           </div>
         </div>
@@ -43,12 +42,12 @@
           <div class="mainContentTop">
             <div class="mainContentTitle">Attendants</div>
             <div class="searchInputContainer">
-              <input type="text" class="searchInput" oninput="handleChange(event)" placeholder="search attendants">
+              <input type="text" class="searchInput"  placeholder="search attendants">
               <span class="searchIcon">
                 <i class="fas fa-search 2X"></i>
               </span>
             </div>
-            <div class="createNew" onclick="handleNavToRegisterPage()">
+            <div class="createNew NavToRegisterPage" >
               Create new attendant
             </div>
 
