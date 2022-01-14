@@ -10,6 +10,7 @@ const devConfig = {
 
 const proConfig = {
   connectionString: process.env.DATABASE_URL,
+  ssl: true,
 };
 
 const pool = new Pool(

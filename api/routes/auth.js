@@ -28,7 +28,6 @@ router.post("/signup", async (req, res) => {
 // LOGIN
 
 router.post("/login", async (req, res) => {
-  await pool.connect();
   try {
     const { email, password } = req.body;
     if (email && password) {
