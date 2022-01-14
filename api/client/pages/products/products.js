@@ -42,7 +42,7 @@ const handleNavToSaleRecords = () => {
   window.location.assign("/pages/saleRecords/saleRecords.html");
 };
 
-const backHome = () => {
+const handleNavBackHome = () => {
   window.location.assign("/pages/home/home.html");
 };
 
