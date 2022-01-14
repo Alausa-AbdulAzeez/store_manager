@@ -186,7 +186,7 @@ const handleLogout = () => {
 };
 
 // BACK HOME
-const backHome = () => {
+const handleNavBackHome = () => {
   window.location.assign("/client/pages/home/home.html");
 };
 
