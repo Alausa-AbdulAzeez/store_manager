@@ -40,7 +40,7 @@ const handleLogout = () => {
 };
 
 if (NavToProducts) {
-  NavToProducts.addEventListener("click", handleNavToProducts());
+  NavToProducts.addEventListener("click", handleNavToProducts);
 }
 if (NavToAttendants) {
   NavToAttendants.addEventListener("click", handleNavToAttendants);
