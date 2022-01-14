@@ -5,17 +5,17 @@ const userProfile = document.querySelector(".user");
 const prod = document.querySelector(".products");
 const attendants = document.querySelector(".attendants");
 
-// userProfile.innerHTML = `<img
-//               src=${
-//                 user.profile_picture === "test" || null
-//                   ? "https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
-//                   : user.profile_picture
-//               }
-//               alt=""
-//               class="userImg"
-//             />
-//             <h3 class="username">${user.email}</h3>
-//             `;
+userProfile.innerHTML = `<img
+              src=${
+                user.profile_picture === "test" || null
+                  ? "https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
+                  : user.profile_picture
+              }
+              alt=""
+              class="userImg"
+            />
+            <h3 class="username">${user.email}</h3>
+            `;
 
 const handleNavToProducts = () => {
   window.location.assign("/pages/products/products.html");
@@ -31,6 +31,7 @@ const handleNavToSaleRecords = () => {
 
 const handleLogout = () => {
   localStorage.removeItem("user");
+  location.reload();
 };
 
 if (prod) {

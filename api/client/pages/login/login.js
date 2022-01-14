@@ -23,19 +23,16 @@ const handleLogin = async (e) => {
     },
     body: JSON.stringify(body),
   }).then(async (response) => {
-    console.log(response);
-    console.log(response.json());
-
-    // if (response.ok) {
-    //   const user = await response.json(body);
-    //   localStorage.setItem("user", JSON.stringify(user));
-    // window.location.assign(
-    //     "https://alausa-abdulazeez.github.io/index.html"
-    //   );
-    // } else {
-    //   span.classList.add("errorIndicator");
-    //   span.textContent = "Incorrect email or password";
-    // }
+    if (response.ok) {
+      const user = await response.json();
+      localStorage.setItem("user", JSON.stringify(user));
+      window.location.assign(
+        "http://127.0.0.1:5500/client/pages/home/home.html"
+      );
+    } else {
+      span.classList.add("errorIndicator");
+      span.textContent = "Incorrect email or password";
+    }
   });
 };
 
