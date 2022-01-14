@@ -11,6 +11,7 @@ let body = {};
 
 const handleChange = (e) => {
   body = { ...body, [e.target.name]: e.target.value };
+  return body;
 };
 
 const handleLogin = async (e) => {
@@ -23,6 +24,8 @@ const handleLogin = async (e) => {
     },
     body: JSON.stringify(body),
   }).then(async (response) => {
+    console.log(`response: ${response}`);
+
     if (response.ok) {
       const user = await response.json();
       localStorage.setItem("user", JSON.stringify(user));

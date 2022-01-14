@@ -36,6 +36,8 @@ router.post("/login", async (req, res) => {
         [email]
       );
 
+      console.log(user);
+
       // check user validity
       user.rows.length === 0 && res.status(403).json("User not found!");
 
