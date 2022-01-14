@@ -161,6 +161,11 @@ const getProducts = async () => {
   }
 };
 
+const handleLogout = () => {
+  localStorage.removeItem("user");
+  location.reload();
+};
+
 const handleChange = async (e) => {
   inputText = e.target.value;
   try {
