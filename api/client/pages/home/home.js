@@ -2,20 +2,25 @@ const user = JSON.parse(localStorage.getItem("user"));
 !user && window.location.assign("/pages/login/login.html");
 
 const userProfile = document.querySelector(".user");
-const prod = document.querySelector(".products");
-const attendants = document.querySelector(".attendants");
 
-userProfile.innerHTML = `<img
-              src=${
-                user.profile_picture === "test" || null
-                  ? "https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
-                  : user.profile_picture
-              }
-              alt=""
-              class="userImg"
-            />
-            <h3 class="username">${user.email}</h3>
-            `;
+const NavToProducts = document.querySelector(".NavToProducts");
+const NavToAttendants = document.querySelector(".NavToAttendants");
+const NavToSaleRecords = document.querySelector(".NavToSaleRecords");
+const logOut = document.querySelector(".logOut");
+
+if (userProfile) {
+  userProfile.innerHTML = `<img
+                src=${
+                  user.profile_picture === "test" || null
+                    ? "https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
+                    : user.profile_picture
+                }
+                alt=""
+                class="userImg"
+              />
+              <h3 class="username">${user.email}</h3>
+              `;
+}
 
 const handleNavToProducts = () => {
   window.location.assign("/pages/products/products.html");
@@ -34,9 +39,9 @@ const handleLogout = () => {
   location.reload();
 };
 
-if (prod) {
-  attendants.addEventListener("click", handleNavToProducts);
-}
-if (attendants) {
-  attendants.addEventListener("click", handleNavToAttendants);
-}
+NavToProducts && NavToProducts.addEventListener("click", handleNavToProducts);
+NavToAttendants &&
+  NavToAttendants.addEventListener("click", handleNavToAttendants);
+NavToSaleRecords &&
+  NavToSaleRecords.addEventListener("click", handleNavToSaleRecords);
+logOut && logOut.addEventListener("click", handleLogout);
