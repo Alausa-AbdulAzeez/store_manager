@@ -39,7 +39,7 @@ const handleLogout = () => {
   location.reload();
 };
 
-NavToProducts && NavToProducts.addEventListener("click", handleNavToProducts);
+NavToProducts && NavToProducts.addEventListener("click", handleNavToProducts());
 NavToAttendants &&
   NavToAttendants.addEventListener("click", handleNavToAttendants);
 NavToSaleRecords &&
