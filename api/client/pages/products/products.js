@@ -1,24 +1,34 @@
 const productsBtn = document.querySelector(".productsBtn");
 const mainRow = document.querySelector(".mainRow");
 const addAction = document.querySelector(".addAction");
+const editProduct = document.querySelector(".editProduct");
+const searchIcon = document.querySelector(".searchIcon");
 const createNew = document.querySelector(".createNew");
 const userProfile = document.querySelector(".user");
+const backHome = document.querySelector(".backHome");
+const NavToProducts = document.querySelector(".NavToProducts");
+const NavToAttendants = document.querySelector(".NavToAttendants");
+const NavToSaleRecords = document.querySelector(".NavToSaleRecords");
+const logOut = document.querySelector(".logOut");
+const searchInput = document.querySelector(".searchInput");
 
 let products = [];
 const user = JSON.parse(localStorage.getItem("user"));
 const userId = user.personnel_id;
 
-userProfile.innerHTML = `<img
-              src=${
-                user.profile_picture === "test" || null
-                  ? "https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
-                  : user.profile_picture
-              }
-              alt=""
-              class="userImg"
-            />
-            <h3 class="username">${user.email}</h3>
-            `;
+if (userProfile) {
+  userProfile.innerHTML = `<img
+                src=${
+                  user.profile_picture === "test" || null
+                    ? "https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
+                    : user.profile_picture
+                }
+                alt=""
+                class="userImg"
+              />
+              <h3 class="username">${user.email}</h3>
+              `;
+}
 
 const handleNavToProducts = () => {
   window.location.assign("/pages/products/products.html");
@@ -202,4 +212,14 @@ const handleChange = async (e) => {
 };
 
 window.addEventListener("load", getProducts);
-createNew.addEventListener("click", handleCreateNewProduct);
+createNew && createNew.addEventListener("click", handleCreateNewProduct);
+editProduct && editProduct.addEventListener("click", handleEditProduct);
+searchIcon && searchIcon.addEventListener("click", (e) => handleChange(e));
+backHome && backHome.addEventListener("click", handleNavBackHome);
+NavToProducts && NavToProducts.addEventListener("click", handleNavToProducts);
+NavToAttendants &&
+  NavToAttendants.addEventListener("click", handleNavToAttendants);
+NavToSaleRecords &&
+  NavToSaleRecords.addEventListener("click", handleNavToSaleRecords);
+logOut && logOut.addEventListener("click", handleLogout);
+searchInput && searchInput.addEventListener("input", (e) => handleChange(e));

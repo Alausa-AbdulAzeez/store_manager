@@ -2,6 +2,13 @@
 // get all attendants
 const mainRow = document.querySelector(".mainRow");
 const dashboard2Text = document.querySelector(".dashboard2Text");
+const backHome = document.querySelector(".backHome");
+const NavToProducts = document.querySelector(".NavToProducts");
+const NavToAttendants = document.querySelector(".NavToAttendants");
+const NavToSaleRecords = document.querySelector(".NavToSaleRecords");
+const logOut = document.querySelector(".logOut");
+const searchInput = document.querySelector(".searchInput");
+const searchIcon = document.querySelector(".searchIcon");
 
 const user = JSON.parse(localStorage.getItem("user"));
 const userProfile = document.querySelector(".user");
@@ -183,4 +190,14 @@ const backHome = () => {
   window.location.assign("/client/pages/home/home.html");
 };
 
+// ADD EVENT LISTENERS
 window.addEventListener("load", handleNavToAttendants);
+searchIcon && searchIcon.addEventListener("click", (e) => handleChange(e));
+backHome && backHome.addEventListener("click", handleNavBackHome);
+NavToProducts && NavToProducts.addEventListener("click", handleNavToProducts);
+NavToAttendants &&
+  NavToAttendants.addEventListener("click", handleNavToAttendants);
+NavToSaleRecords &&
+  NavToSaleRecords.addEventListener("click", handleNavToSaleRecords);
+logOut && logOut.addEventListener("click", handleLogout);
+searchInput && searchInput.addEventListener("input", (e) => handleChange(e));

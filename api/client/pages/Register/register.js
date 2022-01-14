@@ -1,3 +1,8 @@
+const emailInput = document.querySelector(".email");
+const passwordInput = document.querySelector(".password");
+const RepasswordInput = document.querySelector(".Repassword");
+const formBtn = document.querySelector(".formBtn");
+
 let email;
 let password;
 let inputs = {};
@@ -25,3 +30,10 @@ const handleRegister = async (e) => {
     console.log(error);
   }
 };
+
+formBtn && formBtn.addEventListener("click", (e) => handleRegister(e));
+emailInput && emailInput.addEventListener("change", (e) => handleChange(e));
+passwordInput &&
+  passwordInput.addEventListener("change", (e) => handleChange(e));
+RepasswordInput &&
+  RepasswordInput.addEventListener("change", (e) => handleChange(e));

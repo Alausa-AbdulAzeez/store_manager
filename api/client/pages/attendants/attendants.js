@@ -10,17 +10,19 @@ const searchInput = document.querySelector(".searchInput");
 const NavToRegisterPage = document.querySelector(".NavToRegisterPage");
 let attebdant = {};
 
-userProfile.innerHTML = `<img
-              src=${
-                user.profile_picture === "test" || null
-                  ? "https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
-                  : user.profile_picture
-              }
-              alt=""
-              class="userImg"
-            />
-            <h3 class="username">${user.email}</h3>
-            `;
+if (userProfile) {
+  userProfile.innerHTML = `<img
+                src=${
+                  user.profile_picture === "test" || null
+                    ? "https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
+                    : user.profile_picture
+                }
+                alt=""
+                class="userImg"
+              />
+              <h3 class="username">${user.email}</h3>
+              `;
+}
 
 const handleNavToProducts = () => {
   window.location.assign("/client/pages/products/products.html");
