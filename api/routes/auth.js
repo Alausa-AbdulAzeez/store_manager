@@ -8,42 +8,42 @@ const pool = require("../db/db");
 
 router.post("/signup", async (req, res) => {
   try {
-    // await client.connect();
-    const { email, profile_picture, isAdmin, isAttendant } = req.body;
-    const password = req.body.password;
-
-    const newPersonnel = await pool.query(
-      `INSERT INTO personnel (email, password, profile_picture, isAdmin,isAttendant) VALUES($1,$2,$3,$4,$5) RETURNING *`,
-      [email, password, profile_picture, isAdmin, isAttendant]
-    );
-    res.status(201).json(newPersonnel.rows[0]);
+    const { email } = req.body;
+    const password = CryptoJS.AES.encrypt(
+      req.body.password,
+      process.env.SEC_KEY
+    ).toString();
+    if (email && password !== "") {
+      const newPersonnel = await pool.query(
+        `INSERT INTO personnel (email, password) VALUES($1,$2) RETURNING *`,
+        [email, password]
+      );
+      res.status(201).json(newPersonnel.rows[0]);
+    } else res.status(403).json("Please input credentials");
   } catch (error) {
-    // res.status(500).json(error);
+    res.status(500).json(error);
   }
-  // client.end();
 });
 
 // LOGIN
 
 router.post("/login", async (req, res) => {
   try {
-    // await pool.connect();
-    const { email } = await req.body;
-    if (email) {
+    const { email, password } = req.body;
+    if (email && password) {
       const user = await pool.query(
         `SELECT * FROM personnel WHERE email = $1`,
         [email]
       );
+
       // check user validity
       user.rows.length === 0 && res.status(403).json("User not found!");
 
       // decrypt password
-      // const decryptedPassword = CryptoJS.AES.decrypt(
-      //   user.rows[0].password,
-      //   process.env.SEC_KEY
-      // ).toString(CryptoJS.enc.Utf8);
-
-      const decryptedPassword = user.rows[0].password;
+      const decryptedPassword = CryptoJS.AES.decrypt(
+        user.rows[0].password,
+        process.env.SEC_KEY
+      ).toString(CryptoJS.enc.Utf8);
 
       // Checks password validity
       decryptedPassword !== req.body.password &&
@@ -61,13 +61,11 @@ router.post("/login", async (req, res) => {
       const { password, ...others } = user.rows[0];
       res.status(201).json({ ...others, accessToken });
     } else {
-      res.send("input email");
+      res.status(403).json("Please input credentials");
     }
   } catch (error) {
-    // res.json(error);
+    res.status(500).json(error);
   }
-
-  // client.end();
 });
 
 module.exports = router;
