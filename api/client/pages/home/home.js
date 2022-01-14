@@ -3,6 +3,9 @@ const userProfile = document.querySelector(".user");
 const NavToProducts = document.querySelector(".NavToProducts");
 const NavToAttendants = document.querySelector(".NavToAttendants");
 const NavToSaleRecords = document.querySelector(".NavToSaleRecords");
+const NavToProducts2 = document.querySelector(".NavToProducts2");
+const NavToAttendants2 = document.querySelector(".NavToAttendants2");
+const NavToSaleRecords2 = document.querySelector(".NavToSaleRecords2");
 const logOut = document.querySelector(".logOut");
 
 const user = JSON.parse(localStorage.getItem("user"));
@@ -47,4 +50,13 @@ if (NavToAttendants) {
 }
 NavToSaleRecords &&
   NavToSaleRecords.addEventListener("click", handleNavToSaleRecords);
+logOut && logOut.addEventListener("click", handleLogout);
+if (NavToProducts2) {
+  NavToProducts2.addEventListener("click", handleNavToProducts);
+}
+if (NavToAttendants2) {
+  NavToAttendants2.addEventListener("click", handleNavToAttendants);
+}
+NavToSaleRecords2 &&
+  NavToSaleRecords2.addEventListener("click", handleNavToSaleRecords);
 logOut && logOut.addEventListener("click", handleLogout);
