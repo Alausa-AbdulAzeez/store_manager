@@ -25,17 +25,17 @@ if (userProfile) {
 }
 
 const handleNavToProducts = () => {
-  window.location.assign("/client/pages/products/products.html");
+  window.location.assign("/pages/products/products.html");
 };
 
 const handleNavToSaleRecords = () => {
-  window.location.assign("/client/pages/saleRecords/saleRecords.html");
+  window.location.assign("/pages/saleRecords/saleRecords.html");
 };
 
 const handleNavToRegisterPage = () => {
   const user = JSON.parse(localStorage.getItem("user")).isadmin;
   if (user) {
-    window.location.assign("/client/pages/Register/register.html");
+    window.location.assign("/pages/Register/register.html");
   } else {
     console.log("Access denied");
   }
