@@ -1,12 +1,12 @@
-const user = JSON.parse(localStorage.getItem("user"));
-!user && window.location.assign("/pages/login/login.html");
-
 const userProfile = document.querySelector(".user");
 
 const NavToProducts = document.querySelector(".NavToProducts");
 const NavToAttendants = document.querySelector(".NavToAttendants");
 const NavToSaleRecords = document.querySelector(".NavToSaleRecords");
 const logOut = document.querySelector(".logOut");
+
+const user = JSON.parse(localStorage.getItem("user"));
+!user && window.location.assign("/pages/login/login.html");
 
 if (userProfile) {
   userProfile.innerHTML = `<img
@@ -39,9 +39,12 @@ const handleLogout = () => {
   location.reload();
 };
 
-NavToProducts && NavToProducts.addEventListener("click", handleNavToProducts());
-NavToAttendants &&
+if (NavToProducts) {
+  NavToProducts.addEventListener("click", handleNavToProducts());
+}
+if (NavToAttendants) {
   NavToAttendants.addEventListener("click", handleNavToAttendants);
+}
 NavToSaleRecords &&
   NavToSaleRecords.addEventListener("click", handleNavToSaleRecords);
 logOut && logOut.addEventListener("click", handleLogout);
