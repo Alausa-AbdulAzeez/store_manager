@@ -40,10 +40,12 @@ router.post("/login", async (req, res) => {
       user.rows.length === 0 && res.status(403).json("User not found!");
 
       // decrypt password
-      const decryptedPassword = CryptoJS.AES.decrypt(
-        user.rows[0].password,
-        process.env.SEC_KEY
-      ).toString(CryptoJS.enc.Utf8);
+      // const decryptedPassword = CryptoJS.AES.decrypt(
+      //   user.rows[0].password,
+      //   process.env.SEC_KEY
+      // ).toString(CryptoJS.enc.Utf8);
+
+      const decryptedPassword = user.rows[0].password;
 
       // Checks password validity
       decryptedPassword !== req.body.password &&
