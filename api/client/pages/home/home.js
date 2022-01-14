@@ -1,6 +1,6 @@
 const userProfile = document.querySelector(".user");
 
-const NavToProducts = document.querySelector("#NavToProducts");
+const zNavToProducts = document.querySelector("#NavToProducts");
 const NavToAttendants = document.querySelector(".NavToAttendants");
 const NavToSaleRecords = document.querySelector(".NavToSaleRecords");
 const logOut = document.querySelector(".logOut");
@@ -39,7 +39,7 @@ const handleLogout = () => {
   location.reload();
 };
 
-NavToProducts.addEventListener("click", handleNavToProducts());
+zNavToProducts.addEventListener("click", console.log("hugyf"));
 
 if (NavToAttendants) {
   NavToAttendants.addEventListener("click", handleNavToAttendants);
