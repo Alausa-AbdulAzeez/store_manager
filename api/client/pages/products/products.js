@@ -11,6 +11,11 @@ const NavToAttendants = document.querySelector(".NavToAttendants");
 const NavToSaleRecords = document.querySelector(".NavToSaleRecords");
 const logOut = document.querySelector(".logOut");
 const searchInput = document.querySelector(".searchInput");
+const blurBackground = document.querySelector("#blurBackground");
+const closeIcon = document.querySelector(".closeIcon");
+const cancel = document.querySelector(".cancel");
+const errorModal = document.querySelector(".errorModal");
+const deleteProduct = document.querySelector(".delete");
 
 let products = [];
 const user = JSON.parse(localStorage.getItem("user"));
@@ -93,19 +98,6 @@ const handleItemsSold = async (id, personnelId) => {
 
 const handleCreateNewProduct = () => {
   window.location.assign("/pages/newProduct/newProduct.html");
-};
-
-const handleDelete = async (id) => {
-  try {
-    await fetch(`/api/products/delete/${id}`, {
-      method: "delete",
-      headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-    }).then(location.reload());
-  } catch (error) {
-    console.log(error);
-  }
 };
 
 const getProducts = async () => {
@@ -207,7 +199,7 @@ const handleChange = async (e) => {
               <td>$ ${product_price}</td>
               <td class="tableBtn">
                 <div class="addAction" onclick="handleItemsSold(${product_id}, ${userId})" >Add</div>
-                <div class="removeAction" onclick="handleDelete(${product_id})">Del</div>
+                <div class="removeAction" onclick="showModalAndBlurBcg(${product_id})">Del</div>
               </td>
             </tr>`;
         })
@@ -215,6 +207,37 @@ const handleChange = async (e) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const showModalAndBlurBcg = (id) => {
+  toggleBlur();
+  toggleModal();
+
+  const handleDelete = async (id) => {
+    try {
+      await fetch(`/api/products/delete/${id}`, {
+        method: "delete",
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      }).then(location.reload());
+    } catch (error) {
+      console.log(error);
+    }
+    toggleBlur();
+    toggleModal();
+  };
+
+  deleteProduct &&
+    deleteProduct.addEventListener("click", (id) => handleDelete(id));
+};
+
+const toggleBlur = () => {
+  blurBackground.classList.toggle("blurBcg");
+};
+const toggleModal = () => {
+  errorModal.classList.toggle("showM");
 };
 
 window.addEventListener("load", getProducts);
@@ -228,4 +251,6 @@ NavToAttendants &&
 NavToSaleRecords &&
   NavToSaleRecords.addEventListener("click", handleNavToSaleRecords);
 logOut && logOut.addEventListener("click", handleLogout);
-searchInput && searchInput.addEventListener("input", (e) => handleChange(e));
+// blurBackground && blurBackground.addEventListener("click", );
+
+// errorModal && errorModal.addEventListener("click",);
