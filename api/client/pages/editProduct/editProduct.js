@@ -143,6 +143,7 @@ const handleEditProduct = async (id) => {
                 class="product_name"
                 name="product_name"
                 type="text"
+                oninput=handleChange()
                 value=${product[0].product_name}
               />
             </div>
@@ -151,6 +152,7 @@ const handleEditProduct = async (id) => {
               <input
                 class="product_price"
                 type="number"
+                oninput=handleChange()
                 value=${product[0].product_price}
                 name="product_price"
               />
@@ -161,6 +163,7 @@ const handleEditProduct = async (id) => {
                 class="product_desc"
                 name="product_desc"
                 type="text"
+                oninput=handleChange()
                 value=${product[0].product_desc}
               />
             </div>
@@ -170,6 +173,7 @@ const handleEditProduct = async (id) => {
                 class="product_img"
                 name="product_img"
                 type="text"
+                oninput=handleChange()
                 value=${product[0].product_img}
               />
             </div>
@@ -179,6 +183,7 @@ const handleEditProduct = async (id) => {
                 class="product_categories"
                 type="text"
                 value=${product[0].product_categories}
+                oninput=handleCat()
                 name="product_categories"
               />
             </div>
@@ -189,6 +194,7 @@ const handleEditProduct = async (id) => {
                 class="product_quantity"
                 type="number"
                 value=${product[0].total_no_available}
+                oninput=handleChange()
                 name="total_no_available"
               />
             </div>
@@ -369,17 +375,17 @@ const getProducts = async () => {
 //           </form>
 //           <button class="createBtn">Save changes</button>`;
 
-product_name_input &&
-  product_name_input.addEventListener("change", (e) => handleChange(e));
-product_price_input &&
-  product_price_input.addEventListener("change", (e) => handleChange(e));
-product_desc_input &&
-  product_desc_input.addEventListener("change", (e) => handleChange(e));
-product_img_input &&
-  product_img_input.addEventListener("change", (e) => handleChange(e));
-product_categories_input &&
-  product_categories_input.addEventListener("change", (e) => handleCat(e));
-product_quantity_input &&
-  product_quantity_input.addEventListener("change", (e) => handleChange(e));
+// product_name_input &&
+//   product_name_input.addEventListener("change", (e) => handleChange(e));
+// product_price_input &&
+//   product_price_input.addEventListener("change", (e) => handleChange(e));
+// product_desc_input &&
+//   product_desc_input.addEventListener("change", (e) => handleChange(e));
+// product_img_input &&
+//   product_img_input.addEventListener("change", (e) => handleChange(e));
+// product_categories_input &&
+//   product_categories_input.addEventListener("change", (e) => handleCat(e));
+// product_quantity_input &&
+//   product_quantity_input.addEventListener("change", (e) => handleChange(e));
 
 window.addEventListener("load", getProducts);
