@@ -34,8 +34,8 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 30%;
-  left: 30%;
+  top: 35%;
+  left: 35%;
   background-color: rgb(247, 242, 242);
   width: 35%;
   height: 35%;
@@ -482,6 +482,10 @@ tr:nth-child(even) {
 /*# sourceMappingURL=products.css.map */
 
 @media screen and (max-width: 480px) {
+  .errorModal {
+    top: 25%;
+    left: 25%;
+  }
   .glass {
     font-size: 14px;
     display: flex;
@@ -507,23 +511,23 @@ tr:nth-child(even) {
     /* font-size: 30px; */
   }
   .searchInputContainer {
-    left: 10px;
-    width: 20%;
+    left: 5px;
+    width: 35%;
   }
   .searchInputContainer {
-    width: 20%;
+    width: 30%;
   }
   .searchInput {
     width: 100%;
   }
   .createNew {
-    right: 10px;
-    width: 20%;
+    right: 0;
+    width: 25%;
     top: 80%;
   }
   .editProduct {
-    right: calc(20% + 20px);
-    width: 20%;
+    right: 32%;
+    width: 25%;
     top: 80%;
   }
   .mainContentHeader {
@@ -568,7 +572,8 @@ tr:nth-child(even) {
   .mainContent {
     margin: 10px;
   }
-  .dashboard {
+  .dashboard,
+  .editProduct {
     display: none;
   }
 
@@ -577,23 +582,23 @@ tr:nth-child(even) {
     /* font-size: 30px; */
   }
   .searchInputContainer {
-    left: 10px;
-    width: 20%;
+    left: 5px;
+    width: 35%;
   }
   .searchInputContainer {
-    width: 20%;
+    width: 30%;
   }
   .searchInput {
     width: 100%;
   }
   .createNew {
-    right: 10px;
-    width: 20%;
+    right: 0;
+    width: 25%;
     top: 80%;
   }
   .editProduct {
-    right: calc(20% + 20px);
-    width: 20%;
+    right: 32%;
+    width: 25%;
     top: 80%;
   }
   .addAction,
