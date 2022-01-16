@@ -485,6 +485,11 @@ tr:nth-child(even) {
   .errorModal {
     top: 25%;
     left: 25%;
+    width: 50%;
+  }
+  .circle1,
+  .circle2 {
+    display: none;
   }
   .glass {
     font-size: 14px;
@@ -572,8 +577,7 @@ tr:nth-child(even) {
   .mainContent {
     margin: 10px;
   }
-  .dashboard,
-  .editProduct {
+  .dashboard {
     display: none;
   }
 
@@ -641,9 +645,6 @@ tr:nth-child(even) {
   .mainRow {
     margin-top: 60px;
     top: 50px;
-  }
-  .editProduct {
-    display: none;
   }
 
   .addAction,
