@@ -19,7 +19,9 @@ let categories = [];
 let updatedProduct;
 let product_id;
 
-newProductHeader.textContent = product ? "" : "Edit Product";
+if (newProductHeader) {
+  newProductHeader.textContent = product ? "" : "Edit Product";
+}
 
 const handleChange = (e) => {
   inputs = { ...inputs, [e.target.name]: e.target.value };
