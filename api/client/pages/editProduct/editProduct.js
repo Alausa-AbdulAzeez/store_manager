@@ -43,7 +43,9 @@ const handleEditProduct = async (id) => {
     }).then(async (response) => {
       product = await response.json();
       product_id = product[0].product_id;
-      newProductHeader.textContent = `Edit ` + product[0].product_name;
+      if (newProductHeader) {
+        newProductHeader.textContent = `Edit ` + product[0].product_name;
+      }
     });
   } catch (error) {
     console.log(error);
