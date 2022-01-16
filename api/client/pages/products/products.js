@@ -255,6 +255,6 @@ NavToAttendants &&
 NavToSaleRecords &&
   NavToSaleRecords.addEventListener("click", handleNavToSaleRecords);
 logOut && logOut.addEventListener("click", handleLogout);
-blurBackground && blurBackground.addEventListener("click", removeBlurAndModal);
+closeIcon && closeIcon.addEventListener("click", removeBlurAndModal);
 
-errorModal && errorModal.addEventListener("click", removeBlurAndModal);
+cancel && cancel.addEventListener("click", removeBlurAndModal);
