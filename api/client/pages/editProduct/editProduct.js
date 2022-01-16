@@ -26,6 +26,7 @@ if (newProductHeader) {
 editContainer.innerHTML = product
   ? ""
   : `<form class="addProductForm">
+          <div class="newProductHeader">Edit product </div>
             <div class="addProductItem">
               <label for="">Title</label>
               <input
@@ -93,8 +94,7 @@ const handleCat = (e) => {
   categories = e.target.value.split(",");
   updatedProduct = { ...product[0], product_categories: categories };
 };
-const handleSubmit = async (e) => {
-  e.preventDefault();
+const handleSubmit = async () => {
   const body = { ...updatedProduct };
 
   try {
@@ -129,7 +129,8 @@ const handleEditProduct = async (id) => {
         newProductHeader.textContent = `Edit ` + product[0].product_name;
       }
       editContainer.innerHTML = product
-        ? `<div class="newProductHeader"></div>
+        ? `<div class="newProductHeader">
+        Edit ${product[0].product_name} </div>
           <form class="addProductForm">
             <div class="addProductItem">
               <label for="">Title</label>
@@ -187,7 +188,7 @@ const handleEditProduct = async (id) => {
               />
             </div>
           </form>
-          <button class="createBtn" onclick="(e) => handleSubmit(e)">Save changes</button>`
+          <button class="createBtn" onclick="handleSubmit">Save changes</button>`
         : "";
     });
   } catch (error) {
