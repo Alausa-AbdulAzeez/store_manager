@@ -143,7 +143,7 @@ const handleEditProduct = async (id) => {
                 class="product_name"
                 name="product_name"
                 type="text"
-                oninput=handleChange()
+                oninput='handleChange(event)'
                 value=${product[0].product_name}
               />
             </div>
@@ -152,7 +152,8 @@ const handleEditProduct = async (id) => {
               <input
                 class="product_price"
                 type="number"
-                oninput=handleChange()
+                                oninput='handleChange(event)'
+
                 value=${product[0].product_price}
                 name="product_price"
               />
@@ -163,7 +164,8 @@ const handleEditProduct = async (id) => {
                 class="product_desc"
                 name="product_desc"
                 type="text"
-                oninput=handleChange()
+                                oninput='handleChange(event)'
+
                 value=${product[0].product_desc}
               />
             </div>
@@ -173,7 +175,7 @@ const handleEditProduct = async (id) => {
                 class="product_img"
                 name="product_img"
                 type="text"
-                oninput=handleChange()
+                oninput='handleChange(event)'
                 value=${product[0].product_img}
               />
             </div>
@@ -183,7 +185,7 @@ const handleEditProduct = async (id) => {
                 class="product_categories"
                 type="text"
                 value=${product[0].product_categories}
-                oninput=handleCat()
+                oninput='handleCat(event)'
                 name="product_categories"
               />
             </div>
@@ -194,7 +196,7 @@ const handleEditProduct = async (id) => {
                 class="product_quantity"
                 type="number"
                 value=${product[0].total_no_available}
-                oninput=handleChange()
+                oninput='handleChange(event)'
                 name="total_no_available"
               />
             </div>
