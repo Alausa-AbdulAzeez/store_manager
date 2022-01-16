@@ -141,7 +141,7 @@ const getProducts = async () => {
               ${
                 total_no_available === 1
                   ? `<button class="addAction" disabled=true onclick="handleItemsSold(${product_id}, ${userId})" >Addd</button>`
-                  : `<button class="addAction" onclick="handleItemsSold(${product_id}, ${userId})" >Add</button>`
+                  : `<button class="addAction" onclick="handleItemsSold(${product_id}, ${userId})" >Add to cart</button>`
               }
                 <button class="removeAction" onclick="showModalAndBlurBcg(${product_id})">Del</button>
               </td>

@@ -1,3 +1,4 @@
+const editContainer = document.querySelector(".editContainer");
 const productsBtn = document.querySelector(".productsBtn");
 const mainRow = document.querySelector(".mainRow");
 const addAction = document.querySelector(".addAction");
@@ -116,6 +117,126 @@ const getProducts = async () => {
     console.log(error);
   }
 };
+
+editContainer.innerHTML = product
+  ? `<div class="newProductHeader"></div>
+          <form class="addProductForm">
+            <div class="addProductItem">
+              <label for="">Title</label>
+              <input
+                class="product_name"
+                name="product_name"
+                type="text"
+                value=${product[0].product_name}
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Price</label>
+              <input
+                class="product_price"
+                type="number"
+                value=${product[0].product_price}
+                name="product_price"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Description</label>
+              <input
+                class="product_desc"
+                name="product_desc"
+                type="text"
+                value=${product[0].product_desc}
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Image</label>
+              <input
+                class="product_img"
+                name="product_img"
+                type="text"
+                value=${product[0].product_img}
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Categories</label>
+              <input
+                class="product_categories"
+                type="text"
+                value=${product[0].product_categories}
+                name="product_categories"
+              />
+            </div>
+
+            <div class="addProductItem">
+              <label for="">Quantity</label>
+              <input
+                class="product_quantity"
+                type="number"
+                value=${product[0].product_quantity}
+                name="total_no_available"
+              />
+            </div>
+          </form>
+          <button class="createBtn">Save changes</button>`
+  : `<div class="newProductHeader"></div>
+          <form class="addProductForm">
+            <div class="addProductItem">
+              <label for="">Title</label>
+              <input
+                class="product_name"
+                name="product_name"
+                type="text"
+                placeholder="e.g Swim wear"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Price</label>
+              <input
+                class="product_price"
+                type="number"
+                placeholder="e.g $30"
+                name="product_price"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Description</label>
+              <input
+                class="product_desc"
+                name="product_desc"
+                type="text"
+                placeholder="e.g Lorem ipsum, dolor sit amet"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Image</label>
+              <input
+                class="product_img"
+                name="product_img"
+                type="text"
+                placeholder="e.g abc.png"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Categories</label>
+              <input
+                class="product_categories"
+                type="text"
+                placeholder="men, yellow"
+                name="product_categories"
+              />
+            </div>
+
+            <div class="addProductItem">
+              <label for="">Quantity</label>
+              <input
+                class="product_quantity"
+                type="number"
+                placeholder="e.g 50"
+                name="total_no_available"
+              />
+            </div>
+          </form>
+          <button class="createBtn">Save changes</button>`;
 
 product_name_input &&
   product_name_input.addEventListener("change", (e) => handleChange(e));
