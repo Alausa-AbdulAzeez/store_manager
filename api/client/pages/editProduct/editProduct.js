@@ -8,7 +8,7 @@ const product_desc_input = document.querySelector(".product_desc");
 const product_img_input = document.querySelector(".product_img");
 const product_categories_input = document.querySelector(".product_categories");
 const product_quantity_input = document.querySelector(".product_quantity");
-const createBtn = document.querySelector(".createBtn");
+// const createBtn = document.querySelector(".createBtn");
 
 let newProductHeader = document.querySelector(".newProductHeader");
 
@@ -375,6 +375,5 @@ product_categories_input &&
   product_categories_input.addEventListener("change", (e) => handleCat(e));
 product_quantity_input &&
   product_quantity_input.addEventListener("change", (e) => handleChange(e));
-createBtn && createBtn.addEventListener("click", (e) => handleSubmit(e));
 
 window.addEventListener("load", getProducts);
