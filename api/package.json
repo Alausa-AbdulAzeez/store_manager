@@ -22,6 +22,5 @@
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.15",
     "pg": "^8.7.1"
-  },
-  "proxy": "http://127.0.0.1:5501/api/client/"
+  }
 }
