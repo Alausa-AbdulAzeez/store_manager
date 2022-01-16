@@ -143,7 +143,7 @@ const getProducts = async () => {
                   ? `<button class="addAction" disabled=true onclick="handleItemsSold(${product_id}, ${userId})" >Addd</button>`
                   : `<button class="addAction" onclick="handleItemsSold(${product_id}, ${userId})" >Add</button>`
               }
-                <button class="removeAction" onclick="handleDelete(${product_id})">Del</button>
+                <button class="removeAction" onclick="showModalAndBlurBcg(${product_id})">Del</button>
               </td>
             </tr>`;
         })
