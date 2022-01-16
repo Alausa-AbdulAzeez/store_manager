@@ -6,14 +6,7 @@
 
 .registerContainer {
   height: 100vh;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(rgba(0, 0, 0, 0.9)),
-    to(rgba(0, 0, 0, 0.5))
-  );
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,7 +42,7 @@
   font-weight: 100;
   font-size: 40px;
   margin-bottom: 15px;
-  color: white;
+  color: rgb(0, 37, 37);
   /* @include mobile {
         font-size: 30px;
         text-align: center;
@@ -76,7 +69,7 @@ input {
   padding: 10px;
   border: 1px solid gainsboro;
   outline: none;
-  color: #024141;
+  color: rgb(0, 37, 37);
   background: #ccc8c8;
   letter-spacing: 3px;
   cursor: pointer;
@@ -94,7 +87,7 @@ input {
 }
 
 .registerContainer .formContainer .ps {
-  color: white;
+  color: rgb(0, 37, 37);
   margin-bottom: 10px;
   border-left: 0.1px solid silver;
   cursor: pointer;

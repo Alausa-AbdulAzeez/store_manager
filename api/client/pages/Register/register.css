@@ -5,17 +5,16 @@
 
 .registerContainer {
   height: 100vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0.5)));
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .registerContainer .formContainer {
@@ -28,15 +27,15 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 @media (max-width: 719px) {
   .registerContainer .formContainer {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     height: 100vh;
     width: 100vw;
     padding: 0px;
@@ -47,8 +46,8 @@
   .registerContainer .formContainer {
     padding: 0px;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     height: 100vh;
     width: 100vw;
   }
@@ -58,7 +57,7 @@
   font-weight: 100;
   font-size: 40px;
   margin-bottom: 15px;
-  color: white;
+  color: rgb(0, 37, 37);
 }
 
 @media (max-width: 719px) {
@@ -79,25 +78,25 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 719px) {
   .registerContainer .formContainer .inputs {
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 
 @media (max-width: 1359px) {
   .registerContainer .formContainer .inputs {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     margin: 20px 5px;
   }
 }
@@ -124,12 +123,12 @@
 
 .registerContainer .formContainer .formBtn {
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   padding: 10px;
   border: 1px solid gainsboro;
   outline: none;
-  color: #024141;
+  color: rgb(0, 37, 37);
   background: #ccc8c8;
   letter-spacing: 3px;
   cursor: pointer;
@@ -138,5 +137,16 @@
 .registerContainer .formContainer .formBtn:hover {
   background: teal;
   color: white;
+}
+
+.errorIndicator {
+  color: red;
+  margin-bottom: 10px;
+  border-left: 0.1px solid red;
+  font-size: larger;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 10px;
 }
 /*# sourceMappingURL=register.css.map */

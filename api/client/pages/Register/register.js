@@ -2,6 +2,7 @@ const emailInput = document.querySelector(".email");
 const passwordInput = document.querySelector(".password");
 const RepasswordInput = document.querySelector(".Repassword");
 const formBtn = document.querySelector(".formBtn");
+const span = document.querySelector(".errorInfo");
 
 let email;
 let password;
@@ -12,20 +13,28 @@ const handleChange = async (e) => {
 };
 
 const handleRegister = async (e) => {
+  e.preventDefault();
   try {
-    e.preventDefault();
-
-    const body = { ...inputs };
-
-    const response = await fetch("/api/auth/signup", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    }).then(async (response) => {
-      if (response.ok) {
-        window.location.assign("/pages/attendants/attendants.html");
+    if (inputs) {
+      if (inputs.password === inputs.confirmPassword) {
+        const body = { ...inputs };
+        const response = await fetch("/api/auth/signup", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }).then(async (response) => {
+          if (response.ok) {
+            window.location.assign("/pages/attendants/attendants.html");
+          }
+        });
+      } else {
+        span.classList.add("errorIndicator");
+        span.textContent = "Passwords dont match";
       }
-    });
+    } else {
+      span.classList.add("errorIndicator");
+      span.textContent = "Please input required credentials";
+    }
   } catch (error) {
     console.log(error);
   }
