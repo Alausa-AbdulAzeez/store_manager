@@ -107,7 +107,8 @@ const handleSubmit = async () => {
       body: JSON.stringify(body),
     }).then(async (response) => {
       if (response.ok) {
-        window.location.assign("/client/pages/products/products.html");
+        console.log(await response.json());
+        window.location.assign("/pages/products/products.html");
       }
     });
   } catch (error) {
