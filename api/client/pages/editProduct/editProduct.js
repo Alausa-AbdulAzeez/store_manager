@@ -23,6 +23,67 @@ if (newProductHeader) {
   newProductHeader.textContent = product ? "" : "Edit Product";
 }
 
+editContainer.innerHTML = product
+  ? ""
+  : `<form class="addProductForm">
+            <div class="addProductItem">
+              <label for="">Title</label>
+              <input
+                class="product_name"
+                name="product_name"
+                type="text"
+                placeholder="e.g Swim wear"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Price</label>
+              <input
+                class="product_price"
+                type="number"
+                placeholder="e.g $30"
+                name="product_price"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Description</label>
+              <input
+                class="product_desc"
+                name="product_desc"
+                type="text"
+                placeholder="e.g Lorem ipsum, dolor sit amet"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Image</label>
+              <input
+                class="product_img"
+                name="product_img"
+                type="text"
+                placeholder="e.g abc.png"
+              />
+            </div>
+            <div class="addProductItem">
+              <label for="">Categories</label>
+              <input
+                class="product_categories"
+                type="text"
+                placeholder="men, yellow"
+                name="product_categories"
+              />
+            </div>
+
+            <div class="addProductItem">
+              <label for="">Quantity</label>
+              <input
+                class="product_quantity"
+                type="number"
+                placeholder="e.g 50"
+                name="total_no_available"
+              />
+            </div>
+          </form>
+          <button class="createBtn">Save changes</button>`;
+
 const handleChange = (e) => {
   inputs = { ...inputs, [e.target.name]: e.target.value };
   updatedProduct = { ...product[0], ...inputs };
@@ -31,6 +92,27 @@ const handleChange = (e) => {
 const handleCat = (e) => {
   categories = e.target.value.split(",");
   updatedProduct = { ...product[0], product_categories: categories };
+};
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const body = { ...updatedProduct };
+
+  try {
+    const response = await fetch(`/api/products/update/${product_id}`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+      body: JSON.stringify(body),
+    }).then(async (response) => {
+      if (response.ok) {
+        window.location.assign("/client/pages/products/products.html");
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const handleEditProduct = async (id) => {
@@ -100,35 +182,13 @@ const handleEditProduct = async (id) => {
               <input
                 class="product_quantity"
                 type="number"
-                value=${product[0].product_quantity}
+                value=${product[0].total_no_available}
                 name="total_no_available"
               />
             </div>
           </form>
-          <button class="createBtn">Save changes</button>`
+          <button class="createBtn" onclick="(e) => handleSubmit(e)">Save changes</button>`
         : "";
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const body = { ...updatedProduct };
-
-  try {
-    const response = await fetch(`/api/products/update/${product_id}`, {
-      method: "put",
-      headers: {
-        "Content-Type": "application/json",
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-      },
-      body: JSON.stringify(body),
-    }).then(async (response) => {
-      if (response.ok) {
-        window.location.assign("/client/pages/products/products.html");
-      }
     });
   } catch (error) {
     console.log(error);
