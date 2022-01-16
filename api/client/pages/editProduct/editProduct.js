@@ -16,7 +16,7 @@ let products = [];
 let product;
 let inputs = {};
 let categories = [];
-let updatedProduct;
+let updatedProduct = {};
 let product_id;
 
 if (newProductHeader) {
@@ -96,6 +96,7 @@ const handleCat = (e) => {
 };
 const handleSubmit = async () => {
   const body = { ...updatedProduct };
+  console.log(body);
 
   try {
     const response = await fetch(`/api/products/update/${product_id}`, {
@@ -106,9 +107,10 @@ const handleSubmit = async () => {
       },
       body: JSON.stringify(body),
     }).then(async (response) => {
+      console.log(await response);
       if (response.ok) {
         console.log(await response.json());
-        window.location.assign("/pages/products/products.html");
+        // window.location.assign("/pages/products/products.html");
       }
     });
   } catch (error) {
