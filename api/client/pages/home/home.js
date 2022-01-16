@@ -8,9 +8,6 @@ const NavToAttendants2 = document.querySelector(".NavToAttendants2");
 const NavToSaleRecords2 = document.querySelector(".NavToSaleRecords2");
 const logOut = document.querySelector(".logOut");
 
-const user = JSON.parse(localStorage.getItem("user"));
-!user && window.location.assign("/pages/login/login.html");
-
 if (userProfile) {
   userProfile.innerHTML = `<img
                 src=${
