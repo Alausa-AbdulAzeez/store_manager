@@ -163,7 +163,7 @@ const getProducts = async () => {
 
 const handleLogout = () => {
   localStorage.removeItem("user");
-  location.reload();
+  window.location.assign("/pages/login/login.html");
 };
 
 const handleChange = async (e) => {

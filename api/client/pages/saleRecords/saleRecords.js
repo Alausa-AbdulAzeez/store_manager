@@ -182,7 +182,7 @@ const handleChange = async (e) => {
 // LOGOUT
 const handleLogout = () => {
   localStorage.removeItem("user");
-  location.reload();
+  window.location.assign("/pages/login/login.html");
 };
 
 // BACK HOME
