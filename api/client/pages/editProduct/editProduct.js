@@ -188,7 +188,7 @@ const handleEditProduct = async (id) => {
               />
             </div>
           </form>
-          <button class="createBtn" onclick="handleSubmit">Save changes</button>`
+          <button class="createBtn" onclick="handleSubmit()">Save changes</button>`
         : "";
     });
   } catch (error) {
