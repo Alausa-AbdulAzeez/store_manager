@@ -232,6 +232,10 @@ const showModalAndBlurBcg = (id) => {
   deleteProduct &&
     deleteProduct.addEventListener("click", (id) => handleDelete(id));
 };
+const removeBlurAndModal = () => {
+  toggleBlur();
+  toggleModal();
+};
 
 const toggleBlur = () => {
   blurBackground.classList.toggle("blurBcg");
@@ -251,6 +255,6 @@ NavToAttendants &&
 NavToSaleRecords &&
   NavToSaleRecords.addEventListener("click", handleNavToSaleRecords);
 logOut && logOut.addEventListener("click", handleLogout);
-// blurBackground && blurBackground.addEventListener("click", );
+blurBackground && blurBackground.addEventListener("click", removeBlurAndModal);
 
-// errorModal && errorModal.addEventListener("click",);
+errorModal && errorModal.addEventListener("click", removeBlurAndModal);
