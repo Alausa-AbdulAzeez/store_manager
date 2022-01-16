@@ -87,7 +87,9 @@ editContainer.innerHTML = product
 
 const handleChange = (e) => {
   inputs = { ...inputs, [e.target.name]: e.target.value };
+  console.log(`inputs 1:${inputs}`);
   updatedProduct = { ...product[0], ...inputs };
+  console.log(`updatedProduct 1:${updatedProduct}`);
 };
 
 const handleCat = (e) => {
