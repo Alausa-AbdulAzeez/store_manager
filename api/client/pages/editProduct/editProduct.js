@@ -98,7 +98,6 @@ const handleCat = (e) => {
 };
 const handleSubmit = async () => {
   const body = { ...updatedProduct };
-  console.log(body);
 
   try {
     const response = await fetch(`/api/products/update/${product_id}`, {
@@ -112,7 +111,7 @@ const handleSubmit = async () => {
       console.log(await response);
       if (response.ok) {
         console.log(await response.json());
-        // window.location.assign("/pages/products/products.html");
+        window.location.assign("/pages/products/products.html");
       }
     });
   } catch (error) {

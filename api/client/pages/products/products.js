@@ -198,7 +198,7 @@ const handleChange = async (e) => {
               <td>${total_no_available}</td>
               <td>$ ${product_price}</td>
               <td class="tableBtn">
-                <div class="addAction" onclick="handleItemsSold(${product_id}, ${userId})" >Add</div>
+                <div class="addAction" onclick="handleItemsSold(${product_id}, ${userId})" >Add to cart</div>
                 <div class="removeAction" onclick="showModalAndBlurBcg(${product_id})">Del</div>
               </td>
             </tr>`;
