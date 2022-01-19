@@ -143,7 +143,7 @@ const handleEditProduct = async (id) => {
                 name="product_name"
                 type="text"
                 oninput='handleChange(event)'
-                value=${product[0].product_name.split(" ").join(" ")}
+                value="${product[0].product_name}"
               />
             </div>
             <div class="addProductItem">
@@ -165,7 +165,7 @@ const handleEditProduct = async (id) => {
                 type="text"
                                 oninput='handleChange(event)'
 
-                value=${product[0].product_desc.split(" ").join(" ")}
+                value="${product[0].product_desc}"
               />
             </div>
             <div class="addProductItem">
