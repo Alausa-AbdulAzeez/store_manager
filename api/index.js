@@ -39,9 +39,9 @@ app.use("/api/users/", userRoute);
 
 // app.use(express.static(path.join(__dirname, "/client/")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
