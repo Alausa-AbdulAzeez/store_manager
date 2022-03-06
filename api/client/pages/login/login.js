@@ -16,25 +16,26 @@ const handleChange = (e) => {
 
 const handleLogin = async (e) => {
   e.preventDefault();
-  const response = await fetch("/api/auth/login", {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify(body),
-  }).then(async (response) => {
-    console.log(`response: ${response}`);
+  window.location.assign("/index.html");
+//   const response = await fetch("/api/auth/login", {
+//     method: "post",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Accept: "application/json",
+//     },
+//     body: JSON.stringify(body),
+//   }).then(async (response) => {
+//     console.log(`response: ${response}`);
 
-    if (response.ok) {
-      const user = await response.json();
-      localStorage.setItem("user", JSON.stringify(user));
-      window.location.assign("/index.html");
-    } else {
-      span.classList.add("errorIndicator");
-      span.textContent = "Incorrect email or password";
-    }
-  });
+//     if (response.ok) {
+//       const user = await response.json();
+//       localStorage.setItem("user", JSON.stringify(user));
+//       window.location.assign("/index.html");
+//     } else {
+//       span.classList.add("errorIndicator");
+//       span.textContent = "Incorrect email or password";
+//     }
+//   });
 };
 
 // FUNCTION CALLS
