@@ -52,8 +52,8 @@ const handleLogin = async (e) => {
 
 const handlebypassLoginBtn = (e)=>{
   e.preventDefault();
-  const user = {
-    accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0F0dGVuZGFudCI6dHJ1ZSwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjQ2NjQ2ODE0LCJleHAiOjE2NTUyODY4MTR9.gHe_Xei5nn-h4PskIYp6qO4OMx5jmIXzPmacbShTjX4",
+  const dUser = {
+                 accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0F0dGVuZGFudCI6dHJ1ZSwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjQ2NjQ2ODE0LCJleHAiOjE2NTUyODY4MTR9.gHe_Xei5nn-h4PskIYp6qO4OMx5jmIXzPmacbShTjX4",
                  created_at: "2022-01-13T10:25:26.402Z",
                  email: "tayo@gmail.com",
                  isadmin: true,
@@ -63,6 +63,8 @@ const handlebypassLoginBtn = (e)=>{
                  total_items_sold: 6,
                 updated_at: "2022-01-19T14:52:29.036Z"
                }
+  localStorage.setItem("user", JSON.stringify(dUser));
+
   window.location.assign("/index.html");
 }
 
