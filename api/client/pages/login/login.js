@@ -16,7 +16,7 @@ const handleChange = (e) => {
 
 const handleLogin = async (e) => {
   e.preventDefault();
-  window.location.assign("/index.html");
+//   window.location.assign("/index.html");
   const response = await fetch("/api/auth/login", {
     method: "post",
     headers: {
