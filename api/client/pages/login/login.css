@@ -89,7 +89,7 @@ input {
 .registerContainer .formContainer .ps {
   color: rgb(0, 37, 37);
   margin-bottom: 10px;
-  border-left: 0.1px solid silver;
+  border-left: 0.1px solid black;
   cursor: pointer;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -98,7 +98,8 @@ input {
 }
 
 .registerContainer .formContainer .ps:hover {
-  color: #9cd6d6;
+  background: teal;
+  color: white;
 }
 
 .registerContainer .formContainer .errorIndicator {
