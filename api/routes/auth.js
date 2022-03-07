@@ -59,7 +59,7 @@ router.post("/login", async (req, res) => {
           isAdmin: user.rows[0].isadmin,
         },
         process.env.JWT_SEC,
-        { expiresIn: "300d" }
+        { expiresIn: "100d" }
       );
 
       const { password, ...others } = user.rows[0];
